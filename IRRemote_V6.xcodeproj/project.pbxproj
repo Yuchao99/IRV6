@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0D9118BD1CD3CDA6003D3A77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9118BC1CD3CDA6003D3A77 /* AppDelegate.swift */; };
-		0D9118BF1CD3CDA6003D3A77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9118BE1CD3CDA6003D3A77 /* ViewController.swift */; };
+		0D9118BF1CD3CDA6003D3A77 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9118BE1CD3CDA6003D3A77 /* MainViewController.swift */; };
 		0D9118C21CD3CDA6003D3A77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D9118C01CD3CDA6003D3A77 /* Main.storyboard */; };
 		0D9118C41CD3CDA6003D3A77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D9118C31CD3CDA6003D3A77 /* Assets.xcassets */; };
 		0D9118C71CD3CDA6003D3A77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D9118C51CD3CDA6003D3A77 /* LaunchScreen.storyboard */; };
 		0D9118D21CD3CDA6003D3A77 /* IRRemote_V6Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9118D11CD3CDA6003D3A77 /* IRRemote_V6Tests.swift */; };
 		0D9118DD1CD3CDA6003D3A77 /* IRRemote_V6UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9118DC1CD3CDA6003D3A77 /* IRRemote_V6UITests.swift */; };
+		0D9118EB1CD3CEF9003D3A77 /* protocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9118EA1CD3CEF9003D3A77 /* protocal.swift */; };
+		0D9118ED1CD3D129003D3A77 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9118EC1CD3D129003D3A77 /* model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,7 @@
 /* Begin PBXFileReference section */
 		0D9118B91CD3CDA6003D3A77 /* IRRemote_V6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IRRemote_V6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D9118BC1CD3CDA6003D3A77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0D9118BE1CD3CDA6003D3A77 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0D9118BE1CD3CDA6003D3A77 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0D9118C11CD3CDA6003D3A77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0D9118C31CD3CDA6003D3A77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D9118C61CD3CDA6003D3A77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +49,8 @@
 		0D9118D81CD3CDA6003D3A77 /* IRRemote_V6UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IRRemote_V6UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D9118DC1CD3CDA6003D3A77 /* IRRemote_V6UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRRemote_V6UITests.swift; sourceTree = "<group>"; };
 		0D9118DE1CD3CDA6003D3A77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D9118EA1CD3CEF9003D3A77 /* protocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = protocal.swift; sourceTree = SOURCE_ROOT; };
+		0D9118EC1CD3D129003D3A77 /* model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +102,13 @@
 			isa = PBXGroup;
 			children = (
 				0D9118BC1CD3CDA6003D3A77 /* AppDelegate.swift */,
-				0D9118BE1CD3CDA6003D3A77 /* ViewController.swift */,
+				0D9118BE1CD3CDA6003D3A77 /* MainViewController.swift */,
 				0D9118C01CD3CDA6003D3A77 /* Main.storyboard */,
 				0D9118C31CD3CDA6003D3A77 /* Assets.xcassets */,
 				0D9118C51CD3CDA6003D3A77 /* LaunchScreen.storyboard */,
 				0D9118C81CD3CDA6003D3A77 /* Info.plist */,
+				0D9118EA1CD3CEF9003D3A77 /* protocal.swift */,
+				0D9118EC1CD3D129003D3A77 /* model.swift */,
 			);
 			path = IRRemote_V6;
 			sourceTree = "<group>";
@@ -256,8 +262,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D9118BF1CD3CDA6003D3A77 /* ViewController.swift in Sources */,
+				0D9118EB1CD3CEF9003D3A77 /* protocal.swift in Sources */,
+				0D9118BF1CD3CDA6003D3A77 /* MainViewController.swift in Sources */,
 				0D9118BD1CD3CDA6003D3A77 /* AppDelegate.swift in Sources */,
+				0D9118ED1CD3D129003D3A77 /* model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +410,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = IRRemote_V6/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rab.IRRemote-V6";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -413,6 +422,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = IRRemote_V6/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rab.IRRemote-V6";
 				PRODUCT_NAME = "$(TARGET_NAME)";
