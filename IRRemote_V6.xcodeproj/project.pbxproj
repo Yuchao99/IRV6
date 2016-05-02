@@ -16,6 +16,7 @@
 		0D9118DD1CD3CDA6003D3A77 /* IRRemote_V6UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9118DC1CD3CDA6003D3A77 /* IRRemote_V6UITests.swift */; };
 		0D9118EB1CD3CEF9003D3A77 /* protocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9118EA1CD3CEF9003D3A77 /* protocal.swift */; };
 		0D9118ED1CD3D129003D3A77 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9118EC1CD3D129003D3A77 /* model.swift */; };
+		0DD9F93F1CD7E7AB00D33A3A /* configurarion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD9F93E1CD7E7AB00D33A3A /* configurarion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		0D9118DE1CD3CDA6003D3A77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D9118EA1CD3CEF9003D3A77 /* protocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = protocal.swift; sourceTree = SOURCE_ROOT; };
 		0D9118EC1CD3D129003D3A77 /* model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
+		0DD9F93E1CD7E7AB00D33A3A /* configurarion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = configurarion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				0D9118C81CD3CDA6003D3A77 /* Info.plist */,
 				0D9118EA1CD3CEF9003D3A77 /* protocal.swift */,
 				0D9118EC1CD3D129003D3A77 /* model.swift */,
+				0DD9F93E1CD7E7AB00D33A3A /* configurarion.swift */,
 			);
 			path = IRRemote_V6;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D9118EB1CD3CEF9003D3A77 /* protocal.swift in Sources */,
+				0DD9F93F1CD7E7AB00D33A3A /* configurarion.swift in Sources */,
 				0D9118BF1CD3CDA6003D3A77 /* MainViewController.swift in Sources */,
 				0D9118BD1CD3CDA6003D3A77 /* AppDelegate.swift in Sources */,
 				0D9118ED1CD3D129003D3A77 /* model.swift in Sources */,
@@ -494,6 +498,7 @@
 				0D9118E31CD3CDA6003D3A77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0D9118E41CD3CDA6003D3A77 /* Build configuration list for PBXNativeTarget "IRRemote_V6Tests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +507,7 @@
 				0D9118E61CD3CDA6003D3A77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0D9118E71CD3CDA6003D3A77 /* Build configuration list for PBXNativeTarget "IRRemote_V6UITests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +516,7 @@
 				0D9118E91CD3CDA6003D3A77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
