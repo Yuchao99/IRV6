@@ -10,15 +10,28 @@ import Foundation
 
 class Configuration{
     
-        let ruValue      = 4
-        let rdValue      = 5
-        let delValue     = 15
-        let maxDimValue  = 80
-        let minDimValue  = 1
-        let sensValue    = 100
-        let maxLuxValue  = 56
-        let minLuxValue  = 10
-        let lensValue    = 0
-        let alsValue     = 0
+    var ruValue: Int!
+    var rdValue: Int!
+    var delValue: Int!
+    var maxDimValue: Int!
+    var minDimValue: Int!
+    var sensValue: Int!
+    var maxLuxValue: Int!
+    var minLuxValue: Int!
+    var lensValue: Int!
+    var alsValue: Int!
+    
+    init(){
+        ruValue = 4
+        rdValue = 5
+        delValue = 15
+        maxDimValue = 80
+        minDimValue = 1
+        sensValue = 100
+        maxLuxValue = 56
+        minLuxValue = 10
+        lensValue = 0
+        alsValue = 0
+    }
 
 }

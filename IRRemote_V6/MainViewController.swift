@@ -17,7 +17,8 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
+        //start your engine
         node = Protocal()
         engine = AVAudioEngine()
         
@@ -34,6 +35,8 @@ class MainViewController: UIViewController {
         } catch let error as NSError {
             print(error)
         }
+        
+        //engine start
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,6 +44,7 @@ class MainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
     @IBAction func sendBtn(sender: UIButton) {
         
         self.operations.loadingBuffers(node, command: self.operations.test())
