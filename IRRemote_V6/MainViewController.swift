@@ -12,6 +12,7 @@ import AVFoundation
 class MainViewController: UIViewController {
     
     var operations = Model()
+    var settings = Configuration()
     var engine: AVAudioEngine!
     var node: Protocal!
 
@@ -47,7 +48,9 @@ class MainViewController: UIViewController {
     
     @IBAction func sendBtn(sender: UIButton) {
         
-        self.operations.loadingBuffers(node, command: self.operations.test())
+        //self.operations.loadingBuffers(node, command: self.operations.test())
+        //to send all the commands
+        self.operations.excuteQueue(node, settings: self.operations.processQueue(self.settings))
         node.play()
     }
 

@@ -28,6 +28,33 @@ class Model {
         return str
     }
     
+    //process settings queue
+    func processQueue(settings: Configuration) -> [String]{
+        
+        var results = [String]()
+        results.append(decimalToReversedBinary(settings.ruValue))
+        results.append(decimalToReversedBinary(settings.rdValue))
+        results.append(decimalToReversedBinary(settings.delValue))
+        results.append(decimalToReversedBinary(settings.maxDimValue))
+        results.append(decimalToReversedBinary(settings.minDimValue))
+        results.append(decimalToReversedBinary(settings.sensValue))
+        results.append(decimalToReversedBinary(settings.maxLuxValue))
+        results.append(decimalToReversedBinary(settings.minLuxValue))
+        results.append(decimalToReversedBinary(settings.lensValue))
+        results.append(decimalToReversedBinary(settings.alsValue))
+        
+        return results
+    }
+    
+    //excute setting queue
+    func excuteQueue(node: Protocal, settings: [String]){
+        
+        for setting: String in settings{
+            loadingBuffers(node, command: setting)
+        }
+    }
+    
+    
     func loadingBuffers(node: Protocal, command: String){
         for logic in command.characters{
             if logic == "0"{

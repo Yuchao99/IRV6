@@ -51,8 +51,8 @@
 		0D9118DC1CD3CDA6003D3A77 /* IRRemote_V6UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRRemote_V6UITests.swift; sourceTree = "<group>"; };
 		0D9118DE1CD3CDA6003D3A77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D9118EA1CD3CEF9003D3A77 /* protocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = protocal.swift; sourceTree = SOURCE_ROOT; };
-		0D9118EC1CD3D129003D3A77 /* model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
-		0DD9F93E1CD7E7AB00D33A3A /* configurarion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = configurarion.swift; sourceTree = "<group>"; };
+		0D9118EC1CD3D129003D3A77 /* model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = model.swift; path = IRRemote_V6/model.swift; sourceTree = "<group>"; };
+		0DD9F93E1CD7E7AB00D33A3A /* configurarion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = configurarion.swift; path = IRRemote_V6/configurarion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +83,7 @@
 		0D9118B01CD3CDA6003D3A77 = {
 			isa = PBXGroup;
 			children = (
+				0DD9F97E1CD93E7800D33A3A /* Logic */,
 				0D9118BB1CD3CDA6003D3A77 /* IRRemote_V6 */,
 				0D9118D01CD3CDA6003D3A77 /* IRRemote_V6Tests */,
 				0D9118DB1CD3CDA6003D3A77 /* IRRemote_V6UITests */,
@@ -103,15 +104,13 @@
 		0D9118BB1CD3CDA6003D3A77 /* IRRemote_V6 */ = {
 			isa = PBXGroup;
 			children = (
+				0DD9F97F1CD93EB300D33A3A /* SettingModule */,
 				0D9118BC1CD3CDA6003D3A77 /* AppDelegate.swift */,
 				0D9118BE1CD3CDA6003D3A77 /* MainViewController.swift */,
 				0D9118C01CD3CDA6003D3A77 /* Main.storyboard */,
 				0D9118C31CD3CDA6003D3A77 /* Assets.xcassets */,
 				0D9118C51CD3CDA6003D3A77 /* LaunchScreen.storyboard */,
 				0D9118C81CD3CDA6003D3A77 /* Info.plist */,
-				0D9118EA1CD3CEF9003D3A77 /* protocal.swift */,
-				0D9118EC1CD3D129003D3A77 /* model.swift */,
-				0DD9F93E1CD7E7AB00D33A3A /* configurarion.swift */,
 			);
 			path = IRRemote_V6;
 			sourceTree = "<group>";
@@ -132,6 +131,23 @@
 				0D9118DE1CD3CDA6003D3A77 /* Info.plist */,
 			);
 			path = IRRemote_V6UITests;
+			sourceTree = "<group>";
+		};
+		0DD9F97E1CD93E7800D33A3A /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				0D9118EA1CD3CEF9003D3A77 /* protocal.swift */,
+				0D9118EC1CD3D129003D3A77 /* model.swift */,
+				0DD9F93E1CD7E7AB00D33A3A /* configurarion.swift */,
+			);
+			name = Logic;
+			sourceTree = "<group>";
+		};
+		0DD9F97F1CD93EB300D33A3A /* SettingModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SettingModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
