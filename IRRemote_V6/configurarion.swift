@@ -10,6 +10,26 @@ import Foundation
 
 class Configuration{
     
+    enum settingTypes {
+        case rampUP
+        case delayToOff
+        case rampDown
+        case maxDimming
+        case minDimming
+        case sensitivity
+        case lightSensor
+    }
+    
+    let ru = 2
+    let rd = 3
+    let delM = 11
+    let delS = 12
+    let minLux = 9
+    let maxLux = 8
+    let minDim = 6
+    let maxDim = 5
+    let sens = 7
+    
     var ruValue: Int!
     var rdValue: Int!
     var delValue: Int!

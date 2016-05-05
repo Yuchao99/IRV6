@@ -11,11 +11,23 @@ import AVFoundation
 
 class MainViewController: UIViewController {
     
+    //init all the business parameters
     var operations = Model()
     var settings = Configuration()
     var engine: AVAudioEngine!
     var node: Protocal!
 
+    //declare all the UI components
+    @IBOutlet weak var labelRampUp: UILabel!
+    
+    @IBOutlet weak var labelDelayToOff: UILabel!
+    
+    @IBOutlet weak var labelRampDown: UILabel!
+    @IBOutlet weak var btnLabelRampUp: UIButton!
+    
+    @IBOutlet weak var btnLabelDelayToOff: UIButton!
+    
+    @IBOutlet weak var btnLabelRampDown: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -46,12 +58,21 @@ class MainViewController: UIViewController {
     }
 
     
+    @IBAction func btnDetailSetting(sender: AnyObject) {
+        print("clicked")
+        performSegueWithIdentifier("detailSettingSegue", sender: self)
+    }
+    
     @IBAction func sendBtn(sender: UIButton) {
         
-        //self.operations.loadingBuffers(node, command: self.operations.test())
+        self.operations.loadingBuffers(node, command: self.operations.test())
         //to send all the commands
-        self.operations.excuteQueue(node, settings: self.operations.processQueue(self.settings))
+        //self.operations.excuteQueue(node, settings: self.operations.processQueue(self.settings))
         node.play()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
     }
 
 }
