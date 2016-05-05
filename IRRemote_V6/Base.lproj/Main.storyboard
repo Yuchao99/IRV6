@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="1077" y="418"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Setting View Controller-->
         <scene sceneID="UqZ-bF-b3D">
             <objects>
-                <viewController id="aOs-8t-6Ag" sceneMemberID="viewController">
+                <viewController id="aOs-8t-6Ag" customClass="DetailSettingViewController" customModule="IRRemote_V6" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zjD-ou-Fxq"/>
                         <viewControllerLayoutGuide type="bottom" id="i9p-bw-M0N"/>
@@ -97,6 +97,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TITLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXW-TY-PSs">
+                                <rect key="frame" x="67" y="88" width="229" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vm7-An-d7I">
                                 <rect key="frame" x="82" y="175" width="57" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -105,20 +111,41 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="xfw-df-03i">
                                 <rect key="frame" x="51" y="232" width="118" height="31"/>
+                                <connections>
+                                    <action selector="sliderMainAction:" destination="aOs-8t-6Ag" eventType="valueChanged" id="uNH-J7-eHy"/>
+                                </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fp1-JF-4Eh">
                                 <rect key="frame" x="93" y="467" width="34" height="30"/>
                                 <state key="normal" title="send"/>
+                                <connections>
+                                    <action selector="btnSend:" destination="aOs-8t-6Ag" eventType="touchUpInside" id="nrz-q7-8sW"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TITLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXW-TY-PSs">
-                                <rect key="frame" x="67" y="88" width="229" height="45"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yY-wo-0pu">
+                                <rect key="frame" x="92" y="387" width="37" height="30"/>
+                                <state key="normal" title="value"/>
+                                <connections>
+                                    <action selector="btnValue:" destination="aOs-8t-6Ag" eventType="touchUpInside" id="RqP-YZ-3fr"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="unit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7EZ-91-MJY">
+                                <rect key="frame" x="96" y="425" width="29" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="btnLabelSend" destination="fp1-JF-4Eh" id="BSK-Su-yMf"/>
+                        <outlet property="btnLabelValue" destination="2yY-wo-0pu" id="VtF-xz-sya"/>
+                        <outlet property="labelMainTitle" destination="WXW-TY-PSs" id="oUm-C0-1no"/>
+                        <outlet property="labelSubtitle" destination="vm7-An-d7I" id="jpG-WE-49Y"/>
+                        <outlet property="labelUnitMark" destination="7EZ-91-MJY" id="2EX-Pe-gvp"/>
+                        <outlet property="sliderMain" destination="xfw-df-03i" id="fZS-W0-kEr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bAe-DW-jCG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
