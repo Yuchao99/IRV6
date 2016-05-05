@@ -18,7 +18,8 @@ class DetailSettingViewController: UIViewController {
     @IBOutlet weak var labelUnitMark: UILabel!
     @IBOutlet weak var btnLabelSend: UIButton!
     
-    
+    var settings = Configuration()
+    var type =   Configuration.settingTypes()
     
     
     override func viewDidLoad() {

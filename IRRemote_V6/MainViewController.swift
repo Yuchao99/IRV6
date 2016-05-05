@@ -32,7 +32,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        loadSetting(settings)
         //start your engine
         node = Protocal()
         engine = AVAudioEngine()
@@ -50,19 +50,29 @@ class MainViewController: UIViewController {
         } catch let error as NSError {
             print(error)
         }
-        
-        //engine start
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
     
-    @IBAction func btnDetailSetting(sender: AnyObject) {
+    func loadSetting(config: Configuration){
+        //two parts, first time open app, load default setting; loading from loal files
+        //now just use default setting
+        btnLabelRampUp.setTitle(String(config.ruValue)+" Secs", forState: .Normal)
+        btnLabelRampDown.setTitle(String(config.rdValue)+" Secs", forState: .Normal)
+        //call for a logic to handle the situation that M is 0
+        btnLabelDelayToOff.setTitle(String(config.delM)+" M "+String(config.delS)+" S", forState: .Normal)
+    }
+    
+    
+    
+    @IBAction func btnDetailSetting(sender: UIButton!) {
         print("clicked")
-        performSegueWithIdentifier("detailSettingSegue", sender: self)
+        performSegueWithIdentifier("detailSettingSegue", sender: sender)
+        
     }
     
     @IBAction func sendBtn(sender: UIButton) {
@@ -74,7 +84,25 @@ class MainViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+        if segue.identifier == "detailSettingSegue" {
+            var detailSettingViewController = segue.destinationViewController as! DetailSettingViewController
+            
+            
+            switch sender!.tag {
+            case 1:
+                detailSettingViewController.type = Configuration.settingTypes.rampUP
+            case 2:
+                detailSettingViewController.type = Configuration.settingTypes.delayToOff
+
+            case 3:
+                detailSettingViewController.type = Configuration.settingTypes.rampDown
+
+            default:
+                detailSettingViewController.type = Configuration.settingTypes.other
+            }
+            
+            detailSettingViewController.settings = self.settings
+        }
     }
 
 }
