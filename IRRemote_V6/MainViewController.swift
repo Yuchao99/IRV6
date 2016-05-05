@@ -19,15 +19,17 @@ class MainViewController: UIViewController {
 
     //declare all the UI components
     @IBOutlet weak var labelRampUp: UILabel!
-    
     @IBOutlet weak var labelDelayToOff: UILabel!
-    
     @IBOutlet weak var labelRampDown: UILabel!
+    
+    
     @IBOutlet weak var btnLabelRampUp: UIButton!
-    
     @IBOutlet weak var btnLabelDelayToOff: UIButton!
-    
     @IBOutlet weak var btnLabelRampDown: UIButton!
+    
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
