@@ -54,6 +54,13 @@ class Model {
         }
     }
     
+    func processDetailCommand(command: Int, value: Int) -> String {
+        
+        let commandStr = decimalToReversedBinary(command) + decimalToReversedBinary(value)
+        
+        return commandStr
+        
+    }
     
     func loadingBuffers(node: Protocal, command: String){
         for logic in command.characters{

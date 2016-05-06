@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class DetailSettingViewController: UIViewController {
 
@@ -20,13 +21,32 @@ class DetailSettingViewController: UIViewController {
     
     var settings = Configuration()
     var type =   Configuration.settingTypes()
+    var operation: Model!
+    var engine: AVAudioEngine!
+    var node: Protocal!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadingSetting()
         
+        operation = Model()
+        node = Protocal()
+        engine = AVAudioEngine()
         
+        node.frequency = 125
+        
+        let format = AVAudioFormat(standardFormatWithSampleRate: node.sampleRate, channels: 1)
+        
+        
+        engine.attachNode(node)
+        let mixer = engine.mainMixerNode
+        engine.connect(node, to: mixer, format: format)
+        do {
+            try engine.start()
+        } catch let error as NSError {
+            print(error)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,6 +84,9 @@ class DetailSettingViewController: UIViewController {
     @IBAction func btnValue(sender: AnyObject) {
     }
     @IBAction func btnSend(sender: AnyObject) {
+        
+        
+        
     }
     
 

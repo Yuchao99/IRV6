@@ -10,9 +10,11 @@ import Foundation
 
 class Configuration{
     
-    enum settingTypes {
+    enum settingTypes: Int {
         case rampUP
         case delayToOff
+        case delayToOffM
+        case delayToOffS
         case rampDown
         case maxDimming
         case minDimming
@@ -21,6 +23,26 @@ class Configuration{
         case other
         init(){
             self = .other
+        }
+        var value: Int{
+            switch self {
+            case .rampUP:
+                return 2
+            case .delayToOffM:
+                return 11
+            case .delayToOffS:
+                return 12
+            case .rampDown:
+                return 3
+            case .maxDimming:
+                return 5
+            case .minDimming:
+                return 6
+            case .sensitivity:
+                return 7
+            default:
+                return 0
+            }
         }
     }
     

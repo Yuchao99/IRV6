@@ -50,7 +50,7 @@ class MainViewController: UIViewController {
         } catch let error as NSError {
             print(error)
         }
-
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -85,8 +85,8 @@ class MainViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "detailSettingSegue" {
-            var detailSettingViewController = segue.destinationViewController as! DetailSettingViewController
             
+            let detailSettingViewController = segue.destinationViewController as! DetailSettingViewController
             
             switch sender!.tag {
             case 1:
