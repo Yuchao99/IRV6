@@ -61,6 +61,7 @@ class DetailSettingViewController: UIViewController {
             labelSubtitle.text = "Select Ramp Up Value"
             btnLabelValue.setTitle(String(settings.ruValue), forState: .Normal)
             labelUnitMark.text = "Seconds"
+            
         case .delayToOff:
             labelMainTitle.text = "Delay To Off Setting"
             labelSubtitle.text = "Select Delay To Off Value"
@@ -71,6 +72,24 @@ class DetailSettingViewController: UIViewController {
             labelSubtitle.text = "Select Ramp Down Value"
             btnLabelValue.setTitle(String(settings.rdValue), forState: .Normal)
             labelUnitMark.text = "Seconds"
+            
+        case .maxDimming:
+            labelMainTitle.text = "Max Dimming Setting"
+            labelSubtitle.text = "Select Max Dimming Value"
+            btnLabelValue.setTitle(String(settings.maxDimValue), forState: .Normal)
+            labelUnitMark.text = "%"
+        
+        case .minDimming:
+            labelMainTitle.text = "Min Dimming Setting"
+            labelSubtitle.text = "Select Min Dimming Value"
+            btnLabelValue.setTitle(String(settings.minDimValue), forState: .Normal)
+            
+        case .sensitivity:
+            labelMainTitle.text = "Sensitivity Setting"
+            labelSubtitle.text = "Select Sensitivity Value"
+            btnLabelValue.setTitle(String(settings.sensValue), forState: .Normal)
+            labelUnitMark.text = "%"
+        
         default:
             labelMainTitle.text = "Setting"
             labelSubtitle.text = "Select Value"

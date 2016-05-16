@@ -21,11 +21,19 @@ class MainViewController: UIViewController {
     @IBOutlet weak var labelRampUp: UILabel!
     @IBOutlet weak var labelDelayToOff: UILabel!
     @IBOutlet weak var labelRampDown: UILabel!
+    @IBOutlet weak var labelMaxDimming: UILabel!
+    @IBOutlet weak var labelMinDimming: UILabel!
+    @IBOutlet weak var labelSensitivity: UILabel!
+    @IBOutlet weak var ALS: UILabel!
     
     
     @IBOutlet weak var btnLabelRampUp: UIButton!
     @IBOutlet weak var btnLabelDelayToOff: UIButton!
     @IBOutlet weak var btnLabelRampDown: UIButton!
+    @IBOutlet weak var btnLabelMaxDimming: UIButton!
+    @IBOutlet weak var btnLabelMinDimming: UIButton!
+    @IBOutlet weak var btnLabelSensitivity: UIButton!
+    @IBOutlet weak var btnLabelALS: UIButton!
     
 
     
@@ -65,6 +73,11 @@ class MainViewController: UIViewController {
         btnLabelRampDown.setTitle(String(config.rdValue)+" Secs", forState: .Normal)
         //call for a logic to handle the situation that M is 0
         btnLabelDelayToOff.setTitle(String(config.delM)+" M "+String(config.delS)+" S", forState: .Normal)
+        
+        btnLabelMaxDimming.setTitle(String(config.maxDimValue)+"%", forState: .Normal)
+        btnLabelMinDimming.setTitle(String(config.minDimValue)+"%", forState: .Normal)
+        btnLabelSensitivity.setTitle(String(config.sensValue)+"%", forState: .Normal)
+        
     }
     
     
@@ -93,10 +106,15 @@ class MainViewController: UIViewController {
                 detailSettingViewController.type = Configuration.settingTypes.rampUP
             case 2:
                 detailSettingViewController.type = Configuration.settingTypes.delayToOff
-
             case 3:
                 detailSettingViewController.type = Configuration.settingTypes.rampDown
-
+            case 4:
+                detailSettingViewController.type = Configuration.settingTypes.maxDimming
+            case 5:
+                detailSettingViewController.type = Configuration.settingTypes.minDimming
+            case 6:
+                detailSettingViewController.type = Configuration.settingTypes.sensitivity
+                
             default:
                 detailSettingViewController.type = Configuration.settingTypes.other
             }

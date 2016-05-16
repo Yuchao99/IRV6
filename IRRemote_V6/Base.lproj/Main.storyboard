@@ -67,17 +67,81 @@
                                     <action selector="sendBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rqL-TM-fYI"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Max Dimming" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WaM-7H-PSC">
+                                <rect key="frame" x="20" y="239" width="147" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Min Dimming" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEc-EI-Rfc">
+                                <rect key="frame" x="20" y="293" width="141" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sensitivity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wy-as-KYd">
+                                <rect key="frame" x="20" y="350" width="133" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfM-Ad-nG4">
+                                <rect key="frame" x="215" y="241" width="75" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="btnDetailSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SIe-VQ-gh0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LnD-I6-Ron">
+                                <rect key="frame" x="215" y="292" width="75" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="btnDetailSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XuE-fU-fi5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MmY-rA-GSp">
+                                <rect key="frame" x="215" y="349" width="75" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="btnDetailSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mmn-zB-R2A"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLN-Pl-iji">
+                                <rect key="frame" x="217" y="399" width="75" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="btnDetailSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yhn-fO-dFK"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ALS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVx-cW-nKa">
+                                <rect key="frame" x="20" y="398" width="133" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="IR Remote" id="zLO-Ab-z5X"/>
                     <connections>
+                        <outlet property="ALS" destination="dVx-cW-nKa" id="pVv-ns-JaB"/>
+                        <outlet property="btnLabelALS" destination="rLN-Pl-iji" id="N2i-mU-Xyb"/>
                         <outlet property="btnLabelDelayToOff" destination="rfS-KO-kfZ" id="Gls-ox-lAl"/>
+                        <outlet property="btnLabelMaxDimming" destination="vfM-Ad-nG4" id="hXk-cj-Ja9"/>
+                        <outlet property="btnLabelMinDimming" destination="LnD-I6-Ron" id="tcD-Hh-Txg"/>
                         <outlet property="btnLabelRampDown" destination="il5-2K-M4w" id="79x-zw-ATo"/>
                         <outlet property="btnLabelRampUp" destination="DuT-sh-3EL" id="Ize-FK-gkz"/>
+                        <outlet property="btnLabelSensitivity" destination="MmY-rA-GSp" id="Hqg-JZ-MOn"/>
                         <outlet property="labelDelayToOff" destination="QbA-IS-ds8" id="Sp9-gi-8sx"/>
+                        <outlet property="labelMaxDimming" destination="WaM-7H-PSC" id="0oz-7f-5vA"/>
+                        <outlet property="labelMinDimming" destination="dEc-EI-Rfc" id="SMu-Hp-cum"/>
                         <outlet property="labelRampDown" destination="hpl-CT-FeV" id="YV6-PF-Q8p"/>
                         <outlet property="labelRampUp" destination="B7A-h4-C6I" id="k8f-zE-ehf"/>
+                        <outlet property="labelSensitivity" destination="1wy-as-KYd" id="UM5-Qx-nHH"/>
                         <segue destination="aOs-8t-6Ag" kind="show" identifier="detailSettingSegue" id="hvS-Rt-aF1"/>
                     </connections>
                 </viewController>
