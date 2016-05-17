@@ -199,6 +199,9 @@
                                     <action selector="sliderMainAction:" destination="aOs-8t-6Ag" eventType="valueChanged" id="uNH-J7-eHy"/>
                                 </connections>
                             </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="EZL-zY-G5N">
+                                <rect key="frame" x="132" y="292" width="118" height="31"/>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -209,6 +212,7 @@
                         <outlet property="labelSubtitle" destination="vm7-An-d7I" id="jpG-WE-49Y"/>
                         <outlet property="labelUnitMark" destination="7EZ-91-MJY" id="2EX-Pe-gvp"/>
                         <outlet property="sliderMain" destination="xfw-df-03i" id="fZS-W0-kEr"/>
+                        <outlet property="sliderSub" destination="EZL-zY-G5N" id="ggR-5i-8iN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bAe-DW-jCG" userLabel="First Responder" sceneMemberID="firstResponder"/>

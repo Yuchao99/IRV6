@@ -23,6 +23,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
     @IBOutlet weak var btnLabelValue: UIButton!
     @IBOutlet weak var labelUnitMark: UILabel!
     @IBOutlet weak var btnLabelSend: UIButton!
+    @IBOutlet weak var sliderSub: UISlider!
     
     var settings = Configuration()
     var type =   Configuration.settingTypes()
@@ -64,6 +65,9 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
     }
     
     func loadingSetting(){
+        
+        sliderSub.hidden = true
+        
         switch type {
         case .rampUP:
             labelMainTitle.text = "Ramp Up Setting"
@@ -79,6 +83,8 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
             value = settings.delM
             btnLabelValue.setTitle(String(value), forState: .Normal)
             maxValue = 60
+            sliderSub.hidden = false
+            
             
         case .rampDown:
             labelMainTitle.text = "Ramp Down Setting"
