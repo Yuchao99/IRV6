@@ -24,6 +24,7 @@ class DetailSettingViewController: UIViewController {
     var operation: Model!
     var engine: AVAudioEngine!
     var node: Protocal!
+    var value: Int!
     
     
     override func viewDidLoad() {
@@ -59,49 +60,65 @@ class DetailSettingViewController: UIViewController {
         case .rampUP:
             labelMainTitle.text = "Ramp Up Setting"
             labelSubtitle.text = "Select Ramp Up Value"
-            btnLabelValue.setTitle(String(settings.ruValue), forState: .Normal)
+            value = settings.ruValue
+            btnLabelValue.setTitle(String(value), forState: .Normal)
             labelUnitMark.text = "Seconds"
             
         case .delayToOff:
             labelMainTitle.text = "Delay To Off Setting"
             labelSubtitle.text = "Select Delay To Off Value"
-            btnLabelValue.setTitle(String(settings.delM), forState: .Normal)
+            value = settings.delM
+            btnLabelValue.setTitle(String(value), forState: .Normal)
             
         case .rampDown:
             labelMainTitle.text = "Ramp Down Setting"
             labelSubtitle.text = "Select Ramp Down Value"
-            btnLabelValue.setTitle(String(settings.rdValue), forState: .Normal)
+            value = settings.rdValue
+            btnLabelValue.setTitle(String(value), forState: .Normal)
             labelUnitMark.text = "Seconds"
             
         case .maxDimming:
             labelMainTitle.text = "Max Dimming Setting"
             labelSubtitle.text = "Select Max Dimming Value"
-            btnLabelValue.setTitle(String(settings.maxDimValue), forState: .Normal)
+            value = settings.maxDimValue
+            btnLabelValue.setTitle(String(value), forState: .Normal)
             labelUnitMark.text = "%"
         
         case .minDimming:
             labelMainTitle.text = "Min Dimming Setting"
             labelSubtitle.text = "Select Min Dimming Value"
-            btnLabelValue.setTitle(String(settings.minDimValue), forState: .Normal)
+            value = settings.minDimValue
+            btnLabelValue.setTitle(String(value), forState: .Normal)
             
         case .sensitivity:
             labelMainTitle.text = "Sensitivity Setting"
             labelSubtitle.text = "Select Sensitivity Value"
-            btnLabelValue.setTitle(String(settings.sensValue), forState: .Normal)
+            value = settings.sensValue
+            btnLabelValue.setTitle(String(value), forState: .Normal)
             labelUnitMark.text = "%"
         
         default:
             labelMainTitle.text = "Setting"
             labelSubtitle.text = "Select Value"
+            value = 0
             btnLabelValue.setTitle("0", forState: .Normal)
             labelUnitMark.text = "NULL"
         }
+        print(value)
+
+        sliderMain.setValue(Float(Float(value)/100), animated: true)
     }
     
     @IBAction func sliderMainAction(sender: AnyObject) {
+        
+        print(Int(sliderMain.value*100))
+        
+        btnLabelValue.setTitle(String(Int(sliderMain.value*100)), forState: .Normal)
     }
     @IBAction func btnValue(sender: AnyObject) {
     }
+    
+    
     @IBAction func btnSend(sender: AnyObject) {
         
         
