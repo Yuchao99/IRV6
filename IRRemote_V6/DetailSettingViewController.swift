@@ -9,7 +9,12 @@
 import UIKit
 import AVFoundation
 
-class DetailSettingViewController: UIViewController {
+
+protocol unwindValue {
+    func updateSettings(setting: Configuration)
+}
+
+class DetailSettingViewController: UIViewController, UINavigationControllerDelegate {
 
     //declare all the UI components
     @IBOutlet weak var labelMainTitle: UILabel!
@@ -25,11 +30,14 @@ class DetailSettingViewController: UIViewController {
     var engine: AVAudioEngine!
     var node: Protocal!
     var value: Int!
+    var maxValue: Int!
+    var delegate: unwindValue!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadingSetting()
+        navigationController?.delegate = self
         
         operation = Model()
         node = Protocal()
@@ -63,12 +71,14 @@ class DetailSettingViewController: UIViewController {
             value = settings.ruValue
             btnLabelValue.setTitle(String(value), forState: .Normal)
             labelUnitMark.text = "Seconds"
+            maxValue = 60
             
         case .delayToOff:
             labelMainTitle.text = "Delay To Off Setting"
             labelSubtitle.text = "Select Delay To Off Value"
             value = settings.delM
             btnLabelValue.setTitle(String(value), forState: .Normal)
+            maxValue = 60
             
         case .rampDown:
             labelMainTitle.text = "Ramp Down Setting"
@@ -76,6 +86,7 @@ class DetailSettingViewController: UIViewController {
             value = settings.rdValue
             btnLabelValue.setTitle(String(value), forState: .Normal)
             labelUnitMark.text = "Seconds"
+            maxValue = 60
             
         case .maxDimming:
             labelMainTitle.text = "Max Dimming Setting"
@@ -83,12 +94,14 @@ class DetailSettingViewController: UIViewController {
             value = settings.maxDimValue
             btnLabelValue.setTitle(String(value), forState: .Normal)
             labelUnitMark.text = "%"
+            maxValue = 100
         
         case .minDimming:
             labelMainTitle.text = "Min Dimming Setting"
             labelSubtitle.text = "Select Min Dimming Value"
             value = settings.minDimValue
             btnLabelValue.setTitle(String(value), forState: .Normal)
+            maxValue = 100
             
         case .sensitivity:
             labelMainTitle.text = "Sensitivity Setting"
@@ -96,6 +109,7 @@ class DetailSettingViewController: UIViewController {
             value = settings.sensValue
             btnLabelValue.setTitle(String(value), forState: .Normal)
             labelUnitMark.text = "%"
+            maxValue = 100
         
         default:
             labelMainTitle.text = "Setting"
@@ -103,17 +117,37 @@ class DetailSettingViewController: UIViewController {
             value = 0
             btnLabelValue.setTitle("0", forState: .Normal)
             labelUnitMark.text = "NULL"
+            maxValue = 100
         }
-        print(value)
+        
 
-        sliderMain.setValue(Float(Float(value)/100), animated: true)
+        sliderMain.setValue(Float(Float(value) / 100), animated: true)
     }
     
     @IBAction func sliderMainAction(sender: AnyObject) {
         
-        print(Int(sliderMain.value*100))
+        btnLabelValue.setTitle(String(Int(sliderMain.value * Float(maxValue) )), forState: .Normal)
         
-        btnLabelValue.setTitle(String(Int(sliderMain.value*100)), forState: .Normal)
+        switch type {
+        case .rampUP:
+            settings.ruValue = Int(sliderMain.value * Float(maxValue) )
+        
+        case .rampDown:
+            settings.rdValue = Int(sliderMain.value * Float(maxValue) )
+            
+        case .maxDimming:
+            settings.maxDimValue = Int(sliderMain.value * Float(maxValue) )
+            
+        case .minDimming:
+            settings.minDimValue = Int(sliderMain.value * Float(maxValue) )
+        
+        case .sensitivity:
+            settings.sensValue = Int(sliderMain.value * Float(maxValue) )
+            
+        
+        default:
+            print("no value is changed")
+        }
     }
     @IBAction func btnValue(sender: AnyObject) {
     }
@@ -125,6 +159,15 @@ class DetailSettingViewController: UIViewController {
         
     }
     
+    override func didMoveToParentViewController(parent: UIViewController?) {
+        
+        if parent == nil {
+            print("back to parent view")
+            self.delegate.updateSettings(self.settings)
+            
+        }
 
+        
+    }
 
 }

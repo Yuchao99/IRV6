@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, unwindValue {
     
     //init all the business parameters
     var operations = Model()
@@ -119,8 +119,16 @@ class MainViewController: UIViewController {
                 detailSettingViewController.type = Configuration.settingTypes.other
             }
             
+            detailSettingViewController.delegate = self
             detailSettingViewController.settings = self.settings
         }
+    }
+    
+    func updateSettings(setting: Configuration) {
+        self.settings = setting
+        print(settings.ruValue)
+        print("ehrehrehhreh")
+        self.viewDidLoad()
     }
 
 }
