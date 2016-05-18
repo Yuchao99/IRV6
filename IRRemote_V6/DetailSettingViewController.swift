@@ -64,6 +64,35 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         }
     }
 
+    override func viewWillAppear(animated: Bool) {
+        //todo @yuchao make Subs also center at begin and add animation to right
+        if self.type == .delayToOff{
+            
+            let xPosition = btnLabelValue.frame.origin.x - 50
+            let yBtnValue = btnLabelValue.frame.origin.y
+            let yLabelMark = labelUnitMark.frame.origin.y
+            
+            let heightBtnValue = btnLabelValue.frame.size.height
+            let widthBtnValue = btnLabelValue.frame.size.width
+            
+            let heightLabelMark = labelUnitMark.frame.size.height
+            let widthLabelMark = labelUnitMark.frame.size.width
+            
+            UIView.animateWithDuration(1.0, animations: {
+                self.btnLabelValue.frame = CGRectMake(xPosition, yBtnValue, widthBtnValue, heightBtnValue)
+                self.labelUnitMark.frame = CGRectMake(xPosition, yLabelMark, widthLabelMark, heightLabelMark)
+                self.btnLabelValueSub.alpha = 1.0
+                self.labelUnitMarkSub.alpha = 1.0
+            })
+            
+            self.btnLabelValue.transform = CGAffineTransformTranslate(self.btnLabelValue.transform,  -50.0, 0.0)
+            self.labelUnitMark.transform = CGAffineTransformTranslate(self.labelUnitMark.transform, -50.0, 0.0)
+            
+        }
+        
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -96,13 +125,6 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
             sliderSub.hidden = false
             btnLabelValueSub.hidden = false
             labelUnitMarkSub.hidden = false
-            
-//            UIView.animateWithDuration(1.0, animations: {
-//                self.btnLabelValue.frame = CGRectMake(self.btnLabelValue.frame.origin.x - 200, self.btnLabelValue.frame.origin.y+50, self.btnLabelValue.frame.size.width, self.btnLabelValue.frame.size.height)
-//    
-//            })
-            
-            
             
         case .rampDown:
             labelMainTitle.text = "Ramp Down Setting"
@@ -206,33 +228,6 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         
     }
     
-    override func viewWillAppear(animated: Bool) {
-       //todo @yuchao make Subs also center at begin and add animation to right
-        if self.type == .delayToOff{
 
-            let xPosition = btnLabelValue.frame.origin.x - 50
-            let yBtnValue = btnLabelValue.frame.origin.y
-            let yLabelMark = labelUnitMark.frame.origin.y
-            
-            let heightBtnValue = btnLabelValue.frame.size.height
-            let widthBtnValue = btnLabelValue.frame.size.width
-            
-            let heightLabelMark = labelUnitMark.frame.size.height
-            let widthLabelMark = labelUnitMark.frame.size.width
-            
-            UIView.animateWithDuration(1.0, animations: {
-                self.btnLabelValue.frame = CGRectMake(xPosition, yBtnValue, widthBtnValue, heightBtnValue)
-                self.labelUnitMark.frame = CGRectMake(xPosition, yLabelMark, widthLabelMark, heightLabelMark)
-                self.btnLabelValueSub.alpha = 1.0
-                self.labelUnitMarkSub.alpha = 1.0
-            })
-            
-            self.btnLabelValue.transform = CGAffineTransformTranslate(self.btnLabelValue.transform,  -50.0, 0.0)
-            self.labelUnitMark.transform = CGAffineTransformTranslate(self.labelUnitMark.transform, -50.0, 0.0)
-            
-        }
-
-
-    }
 
 }
