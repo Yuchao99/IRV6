@@ -74,9 +74,9 @@ class MainViewController: UIViewController, unwindValue {
         //call for a logic to handle the situation that M is 0
         btnLabelDelayToOff.setTitle(String(config.delM)+" M "+String(config.delS)+" S", forState: .Normal)
         
-        btnLabelMaxDimming.setTitle(String(config.maxDimValue)+"%", forState: .Normal)
-        btnLabelMinDimming.setTitle(String(config.minDimValue)+"%", forState: .Normal)
-        btnLabelSensitivity.setTitle(String(config.sensValue)+"%", forState: .Normal)
+        btnLabelMaxDimming.setTitle(String(config.maxDimValue)+" %", forState: .Normal)
+        btnLabelMinDimming.setTitle(String(config.minDimValue)+" %", forState: .Normal)
+        btnLabelSensitivity.setTitle(String(config.sensValue)+" %", forState: .Normal)
         
     }
     
@@ -127,7 +127,7 @@ class MainViewController: UIViewController, unwindValue {
     func updateSettings(setting: Configuration) {
         self.settings = setting
         print(settings.ruValue)
-        print("ehrehrehhreh")
+        
         self.viewDidLoad()
     }
 

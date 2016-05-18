@@ -167,13 +167,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fp1-JF-4Eh">
-                                <rect key="frame" x="155" y="482" width="34" height="30"/>
-                                <state key="normal" title="send"/>
-                                <connections>
-                                    <action selector="btnSend:" destination="aOs-8t-6Ag" eventType="touchUpInside" id="nrz-q7-8sW"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yY-wo-0pu">
                                 <rect key="frame" x="141" y="367" width="62" height="30"/>
                                 <state key="normal" title="value"/>
@@ -202,15 +195,34 @@
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="EZL-zY-G5N">
                                 <rect key="frame" x="132" y="292" width="118" height="31"/>
                             </slider>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gze-Ox-h6D">
+                                <rect key="frame" x="204" y="367" width="61" height="30"/>
+                                <state key="normal" title="subvalue"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="unit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Byd-ah-Nsj">
+                                <rect key="frame" x="226" y="421" width="29" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fp1-JF-4Eh">
+                                <rect key="frame" x="174" y="489" width="34" height="30"/>
+                                <state key="normal" title="send"/>
+                                <connections>
+                                    <action selector="btnSend:" destination="aOs-8t-6Ag" eventType="touchUpInside" id="nrz-q7-8sW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="btnLabelSend" destination="fp1-JF-4Eh" id="BSK-Su-yMf"/>
                         <outlet property="btnLabelValue" destination="2yY-wo-0pu" id="VtF-xz-sya"/>
+                        <outlet property="btnLabelValueSub" destination="gze-Ox-h6D" id="hd8-RJ-bWH"/>
                         <outlet property="labelMainTitle" destination="WXW-TY-PSs" id="oUm-C0-1no"/>
                         <outlet property="labelSubtitle" destination="vm7-An-d7I" id="jpG-WE-49Y"/>
                         <outlet property="labelUnitMark" destination="7EZ-91-MJY" id="2EX-Pe-gvp"/>
+                        <outlet property="labelUnitMarkSub" destination="Byd-ah-Nsj" id="Hex-7q-pNx"/>
                         <outlet property="sliderMain" destination="xfw-df-03i" id="fZS-W0-kEr"/>
                         <outlet property="sliderSub" destination="EZL-zY-G5N" id="ggR-5i-8iN"/>
                     </connections>

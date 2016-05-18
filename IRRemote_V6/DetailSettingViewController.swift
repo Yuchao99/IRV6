@@ -24,6 +24,10 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
     @IBOutlet weak var labelUnitMark: UILabel!
     @IBOutlet weak var btnLabelSend: UIButton!
     @IBOutlet weak var sliderSub: UISlider!
+    @IBOutlet weak var btnLabelValueSub: UIButton!
+    @IBOutlet weak var labelUnitMarkSub: UILabel!
+    
+    
     
     var settings = Configuration()
     var type =   Configuration.settingTypes()
@@ -38,6 +42,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         loadingSetting()
+        
         navigationController?.delegate = self
         
         operation = Model()
@@ -67,6 +72,11 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
     func loadingSetting(){
         
         sliderSub.hidden = true
+        btnLabelValueSub.hidden = true
+        labelUnitMarkSub.hidden = true
+        
+        btnLabelValueSub.alpha = 0
+        labelUnitMarkSub.alpha = 0
         
         switch type {
         case .rampUP:
@@ -84,6 +94,14 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
             btnLabelValue.setTitle(String(value), forState: .Normal)
             maxValue = 60
             sliderSub.hidden = false
+            btnLabelValueSub.hidden = false
+            labelUnitMarkSub.hidden = false
+            
+//            UIView.animateWithDuration(1.0, animations: {
+//                self.btnLabelValue.frame = CGRectMake(self.btnLabelValue.frame.origin.x - 200, self.btnLabelValue.frame.origin.y+50, self.btnLabelValue.frame.size.width, self.btnLabelValue.frame.size.height)
+//    
+//            })
+            
             
             
         case .rampDown:
@@ -161,9 +179,21 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
     
     @IBAction func btnSend(sender: AnyObject) {
         
+        let xPosition = btnLabelValue.frame.origin.x
+        let yPosition = btnLabelValue.frame.origin.y - 50
         
+        let height = btnLabelValue.frame.size.height
+        let width = btnLabelValue.frame.size.width
+        
+        UIView.animateWithDuration(1.0, animations: {
+            self.btnLabelValue.frame = CGRectMake(xPosition, yPosition, width, height)
+        })
+        
+       // btnLabelValue.frame.origin = CGPoint(x:250, y:250)
         
     }
+    
+
     
     override func didMoveToParentViewController(parent: UIViewController?) {
         
@@ -174,6 +204,35 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         }
 
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+       //todo @yuchao make Subs also center at begin and add animation to right
+        if self.type == .delayToOff{
+
+            let xPosition = btnLabelValue.frame.origin.x - 50
+            let yBtnValue = btnLabelValue.frame.origin.y
+            let yLabelMark = labelUnitMark.frame.origin.y
+            
+            let heightBtnValue = btnLabelValue.frame.size.height
+            let widthBtnValue = btnLabelValue.frame.size.width
+            
+            let heightLabelMark = labelUnitMark.frame.size.height
+            let widthLabelMark = labelUnitMark.frame.size.width
+            
+            UIView.animateWithDuration(1.0, animations: {
+                self.btnLabelValue.frame = CGRectMake(xPosition, yBtnValue, widthBtnValue, heightBtnValue)
+                self.labelUnitMark.frame = CGRectMake(xPosition, yLabelMark, widthLabelMark, heightLabelMark)
+                self.btnLabelValueSub.alpha = 1.0
+                self.labelUnitMarkSub.alpha = 1.0
+            })
+            
+            self.btnLabelValue.transform = CGAffineTransformTranslate(self.btnLabelValue.transform,  -50.0, 0.0)
+            self.labelUnitMark.transform = CGAffineTransformTranslate(self.labelUnitMark.transform, -50.0, 0.0)
+            
+        }
+
+
     }
 
 }
