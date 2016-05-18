@@ -41,6 +41,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         loadingSetting()
         
         navigationController?.delegate = self
@@ -89,8 +90,8 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
             self.labelUnitMark.transform = CGAffineTransformTranslate(self.labelUnitMark.transform, -50.0, 0.0)
             
         }
-        
-        
+        //hints: absolut position
+        // btnLabelValue.frame.origin = CGPoint(x:250, y:250)
     }
     
     override func didReceiveMemoryWarning() {
@@ -195,24 +196,35 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
             print("no value is changed")
         }
     }
+    
     @IBAction func btnValue(sender: AnyObject) {
+
+    
     }
     
     
     @IBAction func btnSend(sender: AnyObject) {
         
-        let xPosition = btnLabelValue.frame.origin.x
-        let yPosition = btnLabelValue.frame.origin.y - 50
+        var stream: String!
         
-        let height = btnLabelValue.frame.size.height
-        let width = btnLabelValue.frame.size.width
+        switch self.type {
+        case .rampUP:
+            stream = operation.processDetailCommand(Configuration.settingTypes.rampUP.value, value: self.settings.ruValue)
+        case .rampDown:
+            stream = operation.processDetailCommand(Configuration.settingTypes.rampDown.value, value: self.settings.rdValue)
+        case .maxDimming:
+            stream = operation.processDetailCommand(Configuration.settingTypes.maxDimming.value, value: self.settings.maxDim)
+        case .minDimming:
+            stream = operation.processDetailCommand(Configuration.settingTypes.minDimming.value, value: self.settings.minDim)
+        case .sensitivity:
+            stream = operation.processDetailCommand(Configuration.settingTypes.sensitivity.value, value: self.settings.sens)
+        default:
+            print("error to create signal")
+            stream = ""
+        }
         
-        UIView.animateWithDuration(1.0, animations: {
-            self.btnLabelValue.frame = CGRectMake(xPosition, yPosition, width, height)
-        })
-        
-       // btnLabelValue.frame.origin = CGPoint(x:250, y:250)
-        
+        self.operation.loadingBuffers(node, command: stream)
+        node.play()
     }
     
 
