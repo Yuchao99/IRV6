@@ -34,14 +34,16 @@ class Model {
         var results = [String]()
         results.append(decimalToReversedBinary(settings.ruValue))
         results.append(decimalToReversedBinary(settings.rdValue))
-        results.append(decimalToReversedBinary(settings.delValue))
+        //todo logic for delay only
+        //results.append(decimalToReversedBinary(settings.delValue))
         results.append(decimalToReversedBinary(settings.maxDimValue))
         results.append(decimalToReversedBinary(settings.minDimValue))
         results.append(decimalToReversedBinary(settings.sensValue))
-        results.append(decimalToReversedBinary(settings.maxLuxValue))
-        results.append(decimalToReversedBinary(settings.minLuxValue))
-        results.append(decimalToReversedBinary(settings.lensValue))
-        results.append(decimalToReversedBinary(settings.alsValue))
+//        results.append(decimalToReversedBinary(settings.lensValue))
+        //todo @yuchao logiv for lightsensor only
+//        results.append(decimalToReversedBinary(settings.alsValue))
+//        results.append(decimalToReversedBinary(settings.maxLuxValue))
+//        results.append(decimalToReversedBinary(settings.minLuxValue))
         
         return results
     }

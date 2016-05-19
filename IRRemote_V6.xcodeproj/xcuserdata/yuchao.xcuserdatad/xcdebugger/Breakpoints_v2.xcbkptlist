@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IRRemote_V6/model.swift"
-            timestampString = "484002354.943329"
+            timestampString = "485361980.066266"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "excuteQueue(_:settings:)"
             landmarkType = "5">
          </BreakpointContent>

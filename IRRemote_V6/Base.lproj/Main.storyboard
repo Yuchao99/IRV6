@@ -194,6 +194,9 @@
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="EZL-zY-G5N">
                                 <rect key="frame" x="132" y="292" width="118" height="31"/>
+                                <connections>
+                                    <action selector="sliderSubAction:" destination="aOs-8t-6Ag" eventType="valueChanged" id="76T-kW-Si3"/>
+                                </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gze-Ox-h6D">
                                 <rect key="frame" x="204" y="367" width="61" height="30"/>

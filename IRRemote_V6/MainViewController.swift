@@ -72,11 +72,13 @@ class MainViewController: UIViewController, unwindValue {
         btnLabelRampUp.setTitle(String(config.ruValue)+" Secs", forState: .Normal)
         btnLabelRampDown.setTitle(String(config.rdValue)+" Secs", forState: .Normal)
         //call for a logic to handle the situation that M is 0
-        btnLabelDelayToOff.setTitle(String(config.delM)+" M "+String(config.delS)+" S", forState: .Normal)
+        btnLabelDelayToOff.setTitle(String(config.delMValue)+" M "+String(config.delSValue)+" S", forState: .Normal)
         
         btnLabelMaxDimming.setTitle(String(config.maxDimValue)+" %", forState: .Normal)
         btnLabelMinDimming.setTitle(String(config.minDimValue)+" %", forState: .Normal)
         btnLabelSensitivity.setTitle(String(config.sensValue)+" %", forState: .Normal)
+        //todo @yuchao make it enable or disable
+        btnLabelALS.setTitle(String(config.alsValue), forState: .Normal)
         
     }
     
@@ -93,6 +95,8 @@ class MainViewController: UIViewController, unwindValue {
         self.operations.loadingBuffers(node, command: self.operations.test())
         //to send all the commands
         //self.operations.excuteQueue(node, settings: self.operations.processQueue(self.settings))
+        //todo @yuchao set maximum volume of output audio
+        node.volume = 1
         node.play()
     }
     

@@ -35,6 +35,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
     var engine: AVAudioEngine!
     var node: Protocal!
     var value: Int!
+    var valueSub: Int!
     var maxValue: Int!
     var delegate: unwindValue!
     
@@ -120,12 +121,16 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         case .delayToOff:
             labelMainTitle.text = "Delay To Off Setting"
             labelSubtitle.text = "Select Delay To Off Value"
-            value = settings.delM
+            value = settings.delMValue
+            valueSub = settings.delSValue
             btnLabelValue.setTitle(String(value), forState: .Normal)
+            btnLabelValueSub.setTitle(String(valueSub), forState: .Normal)
             maxValue = 60
             sliderSub.hidden = false
             btnLabelValueSub.hidden = false
             labelUnitMarkSub.hidden = false
+            labelUnitMark.text = "Mins"
+            labelUnitMarkSub.text = "Seconds"
             
         case .rampDown:
             labelMainTitle.text = "Ramp Down Setting"
@@ -190,11 +195,20 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         
         case .sensitivity:
             settings.sensValue = Int(sliderMain.value * Float(maxValue) )
+        
+        case .delayToOff:
+            settings.delMValue = Int(sliderMain.value * Float(maxValue))
             
         
         default:
             print("no value is changed")
         }
+    }
+    
+    @IBAction func sliderSubAction(sender: AnyObject) {
+        
+        btnLabelValueSub.setTitle(String(Int(sliderSub.value * Float(maxValue) )), forState: .Normal)
+        settings.delSValue = Int(sliderSub.value * Float(maxValue))
     }
     
     @IBAction func btnValue(sender: AnyObject) {
@@ -213,11 +227,17 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         case .rampDown:
             stream = operation.processDetailCommand(Configuration.settingTypes.rampDown.value, value: self.settings.rdValue)
         case .maxDimming:
-            stream = operation.processDetailCommand(Configuration.settingTypes.maxDimming.value, value: self.settings.maxDim)
+            stream = operation.processDetailCommand(Configuration.settingTypes.maxDimming.value, value: self.settings.maxDimValue)
         case .minDimming:
-            stream = operation.processDetailCommand(Configuration.settingTypes.minDimming.value, value: self.settings.minDim)
+            stream = operation.processDetailCommand(Configuration.settingTypes.minDimming.value, value: self.settings.minDimValue)
         case .sensitivity:
-            stream = operation.processDetailCommand(Configuration.settingTypes.sensitivity.value, value: self.settings.sens)
+            stream = operation.processDetailCommand(Configuration.settingTypes.sensitivity.value, value: self.settings.sensValue)
+        case .delayToOff:
+            if settings.delMValue >= 4{
+                stream = operation.processDetailCommand(Configuration.settingTypes.delayToOffM.value, value: self.settings.delMValue)
+            }else{
+                stream = operation.processDetailCommand(Configuration.settingTypes.delayToOffS.value, value: self.settings.delMValue * 60 + self.settings.delSValue)
+            }
         default:
             print("error to create signal")
             stream = ""
