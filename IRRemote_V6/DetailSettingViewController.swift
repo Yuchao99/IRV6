@@ -224,6 +224,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
     @IBAction func sliderSubAction(sender: AnyObject) {
         
         switch type {
+            
         case .delayToOff:
             btnLabelValueSub.setTitle(String(Int(sliderSub.value * Float(maxValue) )), forState: .Normal)
             settings.delSValue = Int(sliderSub.value * Float(maxValue))
@@ -265,6 +266,10 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
             }else{
                 stream = operation.processDetailCommand(Configuration.settingTypes.delayToOffS.value, value: self.settings.delMValue * 60 + self.settings.delSValue)
             }
+            
+        case .lightSensor:
+            stream = operation.processDetailCommand(Configuration.settingTypes.maxLuxValue.value, value: self.settings.maxLuxValue) + operation.processDetailCommand(Configuration.settingTypes.minLuxValue.value, value: self.settings.minLuxValue)
+
         default:
             print("error to create signal")
             stream = ""
