@@ -118,6 +118,8 @@ class MainViewController: UIViewController, unwindValue {
                 detailSettingViewController.type = Configuration.settingTypes.minDimming
             case 6:
                 detailSettingViewController.type = Configuration.settingTypes.sensitivity
+            case 7:
+                detailSettingViewController.type = Configuration.settingTypes.lightSensor
                 
             default:
                 detailSettingViewController.type = Configuration.settingTypes.other

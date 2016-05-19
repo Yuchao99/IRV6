@@ -68,7 +68,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
 
     override func viewWillAppear(animated: Bool) {
         //todo @yuchao make Subs also center at begin and add animation to right
-        if self.type == .delayToOff{
+        if self.type == .delayToOff || self.type == .lightSensor{
             
             let xPosition = btnLabelValue.frame.origin.x - 50
             let yBtnValue = btnLabelValue.frame.origin.y
@@ -163,6 +163,20 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
             labelUnitMark.text = "%"
             maxValue = 100
         
+        case .lightSensor:
+            labelMainTitle.text = "Light Sensor Setting"
+            labelSubtitle.text = "Select Light Sensor Value"
+            value = settings.maxLuxValue
+            valueSub = settings.minLuxValue
+            btnLabelValue.setTitle(String(value), forState: .Normal)
+            btnLabelValueSub.setTitle(String(valueSub), forState: .Normal)
+            maxValue = 100
+            sliderSub.hidden = false
+            btnLabelValueSub.hidden = false
+            labelUnitMarkSub.hidden = false
+            labelUnitMark.text = "%"
+            labelUnitMarkSub.text = "%"
+            
         default:
             labelMainTitle.text = "Setting"
             labelSubtitle.text = "Select Value"
@@ -198,7 +212,9 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         
         case .delayToOff:
             settings.delMValue = Int(sliderMain.value * Float(maxValue))
-            
+          
+        case .lightSensor:
+            settings.maxLuxValue = Int(sliderMain.value * Float(maxValue))
         
         default:
             print("no value is changed")
@@ -207,8 +223,19 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
     
     @IBAction func sliderSubAction(sender: AnyObject) {
         
-        btnLabelValueSub.setTitle(String(Int(sliderSub.value * Float(maxValue) )), forState: .Normal)
-        settings.delSValue = Int(sliderSub.value * Float(maxValue))
+        switch type {
+        case .delayToOff:
+            btnLabelValueSub.setTitle(String(Int(sliderSub.value * Float(maxValue) )), forState: .Normal)
+            settings.delSValue = Int(sliderSub.value * Float(maxValue))
+            
+        case .lightSensor:
+            btnLabelValueSub.setTitle(String(Int(sliderSub.value * Float(maxValue) )), forState: .Normal)
+            settings.minLuxValue = Int(sliderSub.value * Float(maxValue))
+        
+        default:
+            print("sub slider error")
+        }
+        
     }
     
     @IBAction func btnValue(sender: AnyObject) {
