@@ -21,7 +21,7 @@ class Configuration{
         case sensitivity
         case lightSensor
         case maxLuxValue
-        case minLuxValue
+        //case minLuxValue
         case other
         init(){
             self = .other
@@ -44,8 +44,8 @@ class Configuration{
                 return 7
             case .maxLuxValue:
                 return 8
-            case .minLuxValue:
-                return 6
+//            case .minLuxValue:
+//                return 6
             default:
                 return 0
             }
@@ -72,7 +72,7 @@ class Configuration{
     //var lensValue: Int!
     var alsValue: Bool!
     var maxLuxValue: Int!
-    var minLuxValue: Int!
+    //var minLuxValue: Int!
     
     init(){
         ruValue = 4
@@ -83,7 +83,7 @@ class Configuration{
         minDimValue = 1
         sensValue = 100
         maxLuxValue = 56
-        minLuxValue = 10
+        //minLuxValue = 10
         //lensValue = 0
         alsValue = false
     }

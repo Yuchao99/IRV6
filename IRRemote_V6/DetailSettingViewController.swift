@@ -68,7 +68,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
 
     override func viewWillAppear(animated: Bool) {
         //todo @yuchao make Subs also center at begin and add animation to right
-        if self.type == .delayToOff || self.type == .lightSensor{
+        if self.type == .delayToOff {
             
             let xPosition = btnLabelValue.frame.origin.x - 50
             let yBtnValue = btnLabelValue.frame.origin.y
@@ -165,17 +165,10 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         
         case .lightSensor:
             labelMainTitle.text = "Light Sensor Setting"
-            labelSubtitle.text = "Select Light Sensor Value"
             value = settings.maxLuxValue
-            valueSub = settings.minLuxValue
             btnLabelValue.setTitle(String(value), forState: .Normal)
-            btnLabelValueSub.setTitle(String(valueSub), forState: .Normal)
             maxValue = 100
-            sliderSub.hidden = false
-            btnLabelValueSub.hidden = false
-            labelUnitMarkSub.hidden = false
             labelUnitMark.text = "%"
-            labelUnitMarkSub.text = "%"
             
         default:
             labelMainTitle.text = "Setting"
@@ -228,10 +221,6 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         case .delayToOff:
             btnLabelValueSub.setTitle(String(Int(sliderSub.value * Float(maxValue) )), forState: .Normal)
             settings.delSValue = Int(sliderSub.value * Float(maxValue))
-            
-        case .lightSensor:
-            btnLabelValueSub.setTitle(String(Int(sliderSub.value * Float(maxValue) )), forState: .Normal)
-            settings.minLuxValue = Int(sliderSub.value * Float(maxValue))
         
         default:
             print("sub slider error")
@@ -268,8 +257,8 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
             }
             
         case .lightSensor:
-            stream = operation.processDetailCommand(Configuration.settingTypes.maxLuxValue.value, value: self.settings.maxLuxValue) + operation.processDetailCommand(Configuration.settingTypes.minLuxValue.value, value: self.settings.minLuxValue)
-
+            stream = operation.processDetailCommand(Configuration.settingTypes.maxLuxValue.value, value: self.settings.maxLuxValue)
+            
         default:
             print("error to create signal")
             stream = ""
