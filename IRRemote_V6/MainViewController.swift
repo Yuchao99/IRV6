@@ -26,7 +26,7 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
     @IBOutlet weak var labelMinDimming: UILabel!
     @IBOutlet weak var labelSensitivity: UILabel!
     @IBOutlet weak var ALS: UILabel!
-    @IBOutlet weak var labelTestmode: UILabel!
+    
     
     
     @IBOutlet weak var btnLabelRampUp: UIButton!

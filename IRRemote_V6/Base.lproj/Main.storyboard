@@ -5,24 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="AUk-yT-7C6">
-            <objects>
-                <viewController id="bXm-nc-Hnt" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="F12-oD-vSS"/>
-                        <viewControllerLayoutGuide type="bottom" id="0gU-hu-rq0"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Wln-eC-faI">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IIE-X9-JfJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="908" y="-347"/>
-        </scene>
         <!--IR Remote-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -145,9 +127,6 @@
                                 <rect key="frame" x="20" y="72" width="265" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Profile name "/>
-                                <connections>
-                                    <segue destination="bXm-nc-Hnt" kind="show" id="1Mq-e3-v62"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -196,6 +175,18 @@
                     <view key="view" contentMode="scaleToFill" id="cqt-qq-ToL">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Zv-eo-4pm">
+                                <rect key="frame" x="0.0" y="8" width="300" height="67"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Advanced Settings"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jli-o1-dj9">
+                                <rect key="frame" x="4" y="83" width="292" height="67"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="About"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="300" height="150"/>
@@ -205,7 +196,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1w5-z2-FdC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1615" y="-67"/>
+            <point key="canvasLocation" x="1615" y="-511"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="d34-LE-92Q">
+            <objects>
+                <viewController id="AYE-eC-qgA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5gJ-2m-peH"/>
+                        <viewControllerLayoutGuide type="bottom" id="b7r-sJ-fzB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aJ3-bc-Dcc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yID-3D-e3a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2190" y="-812"/>
         </scene>
         <!--Detail Setting View Controller-->
         <scene sceneID="UqZ-bF-b3D">
@@ -290,7 +299,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bAe-DW-jCG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1765" y="418"/>
+            <point key="canvasLocation" x="1765" y="741"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uFV-co-6NU">
@@ -308,7 +317,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZPt-hO-h2I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="269" y="400"/>
+            <point key="canvasLocation" x="257" y="423"/>
         </scene>
     </scenes>
 </document>

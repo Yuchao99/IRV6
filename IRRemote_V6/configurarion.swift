@@ -22,6 +22,10 @@ class Configuration{
         case lightSensor
         case maxLuxValue
         //case minLuxValue
+        case diff
+        case minSlope
+        case maxSlope
+        case keyMod
         case other
         init(){
             self = .other
@@ -44,6 +48,14 @@ class Configuration{
                 return 7
             case .maxLuxValue:
                 return 8
+            case .diff:
+                return 4096
+            case .minSlope:
+                return 4352
+            case .maxSlope:
+                return 4608
+            case .keyMod:
+                return 4864
 //            case .minLuxValue:
 //                return 6
             default:
@@ -52,15 +64,6 @@ class Configuration{
         }
     }
     
-//    let ru = 2
-//    let rd = 3
-//    let delM = 11
-//    let delS = 12
-//    let minLux = 9
-//    let maxDim = 5
-//    let sens = 7
-//    let maxLux = 8
-//    let minDim = 6
     
     var ruValue: Int!
     var rdValue: Int!
@@ -73,6 +76,10 @@ class Configuration{
     var alsValue: Bool!
     var maxLuxValue: Int!
     //var minLuxValue: Int!
+    var diffValue: Int!
+    var minSlopeValue: Int!
+    var maxSlopeValue: Int!
+    var keyModValue: Int!
     
     init(){
         ruValue = 4
@@ -86,6 +93,10 @@ class Configuration{
         //minLuxValue = 10
         //lensValue = 0
         alsValue = false
+        diffValue = 12000
+        minSlopeValue = 200
+        maxSlopeValue = 2000
+        keyModValue = 11111
     }
 
 }
