@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class MainViewController: UIViewController, unwindValue {
+class MainViewController: UIViewController, UIPopoverPresentationControllerDelegate,   unwindValue {
     
     //init all the business parameters
     var operations = Model()
@@ -36,7 +36,7 @@ class MainViewController: UIViewController, unwindValue {
     @IBOutlet weak var btnLabelMinDimming: UIButton!
     @IBOutlet weak var btnLabelSensitivity: UIButton!
     @IBOutlet weak var btnLabelALS: UIButton!
-    @IBOutlet weak var btnLabelTestmode: UIButton!
+    @IBOutlet weak var btnLabelMenu: UIBarButtonItem!
     
 
     
@@ -105,6 +105,10 @@ class MainViewController: UIViewController, unwindValue {
         node.play()
     }
     
+    @IBAction func btnMenuAction(sender: AnyObject) {
+    }
+    
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "detailSettingSegue" {
             
@@ -132,7 +136,17 @@ class MainViewController: UIViewController, unwindValue {
             
             detailSettingViewController.delegate = self
             detailSettingViewController.settings = self.settings
+        }else if segue.identifier == "menuItemsSegue"{
+            
+            let menuBarViewController = segue.destinationViewController as! MenuBarViewController
+            menuBarViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+            menuBarViewController.popoverPresentationController?.delegate = self
         }
+        
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.None
     }
     
     func updateSettings(setting: Configuration) {
