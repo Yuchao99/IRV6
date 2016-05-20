@@ -16,6 +16,7 @@ class MainViewController: UIViewController, unwindValue {
     var settings = Configuration()
     var engine: AVAudioEngine!
     var node: Protocal!
+    
 
     //declare all the UI components
     @IBOutlet weak var labelRampUp: UILabel!
@@ -25,6 +26,7 @@ class MainViewController: UIViewController, unwindValue {
     @IBOutlet weak var labelMinDimming: UILabel!
     @IBOutlet weak var labelSensitivity: UILabel!
     @IBOutlet weak var ALS: UILabel!
+    @IBOutlet weak var labelTestmode: UILabel!
     
     
     @IBOutlet weak var btnLabelRampUp: UIButton!
@@ -34,6 +36,7 @@ class MainViewController: UIViewController, unwindValue {
     @IBOutlet weak var btnLabelMinDimming: UIButton!
     @IBOutlet weak var btnLabelSensitivity: UIButton!
     @IBOutlet weak var btnLabelALS: UIButton!
+    @IBOutlet weak var btnLabelTestmode: UIButton!
     
 
     
@@ -41,6 +44,7 @@ class MainViewController: UIViewController, unwindValue {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadSetting(settings)
+
         //start your engine
         node = Protocal()
         engine = AVAudioEngine()
@@ -89,6 +93,7 @@ class MainViewController: UIViewController, unwindValue {
         performSegueWithIdentifier("detailSettingSegue", sender: sender)
         
     }
+    
     
     @IBAction func sendBtn(sender: UIButton) {
         

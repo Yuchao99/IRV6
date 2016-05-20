@@ -15,7 +15,7 @@ protocol unwindValue {
 }
 
 class DetailSettingViewController: UIViewController, UINavigationControllerDelegate {
-
+    
     //declare all the UI components
     @IBOutlet weak var labelMainTitle: UILabel!
     @IBOutlet weak var labelSubtitle: UILabel!
