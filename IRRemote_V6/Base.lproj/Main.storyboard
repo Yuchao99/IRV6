@@ -158,11 +158,12 @@
                         <outlet property="labelRampUp" destination="B7A-h4-C6I" id="k8f-zE-ehf"/>
                         <outlet property="labelSensitivity" destination="1wy-as-KYd" id="UM5-Qx-nHH"/>
                         <segue destination="aOs-8t-6Ag" kind="show" identifier="detailSettingSegue" id="hvS-Rt-aF1"/>
+                        <segue destination="AYE-eC-qgA" kind="show" identifier="advancedSettingSegue" id="CtA-xh-Znn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1051" y="423"/>
+            <point key="canvasLocation" x="1178" y="436"/>
         </scene>
         <!--Menu Bar View Controller-->
         <scene sceneID="JN2-Pr-ACq">
@@ -180,6 +181,9 @@
                                 <rect key="frame" x="0.0" y="8" width="300" height="67"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Advanced Settings"/>
+                                <connections>
+                                    <action selector="btnAdSettingsAction:" destination="gAX-5C-pUm" eventType="touchUpInside" id="tXK-tG-Pln"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jli-o1-dj9">
                                 <rect key="frame" x="4" y="83" width="292" height="67"/>
@@ -193,15 +197,18 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="300" height="150"/>
+                    <connections>
+                        <outlet property="btnLabelAdSettings" destination="1Zv-eo-4pm" id="HXM-Hc-yaI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1w5-z2-FdC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1615" y="-511"/>
         </scene>
-        <!--View Controller-->
+        <!--Advanced Setting View Controller-->
         <scene sceneID="d34-LE-92Q">
             <objects>
-                <viewController id="AYE-eC-qgA" sceneMemberID="viewController">
+                <viewController id="AYE-eC-qgA" customClass="AdvancedSettingViewController" customModule="IRRemote_V6" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5gJ-2m-peH"/>
                         <viewControllerLayoutGuide type="bottom" id="b7r-sJ-fzB"/>
@@ -299,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bAe-DW-jCG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1765" y="741"/>
+            <point key="canvasLocation" x="1916" y="742"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uFV-co-6NU">

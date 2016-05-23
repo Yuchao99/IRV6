@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D56E2701CEF7C2B000885CA /* MenuBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D56E26F1CEF7C2B000885CA /* MenuBarViewController.swift */; };
+		0D56E2721CF2A56D000885CA /* AdvancedSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D56E2711CF2A56D000885CA /* AdvancedSettingViewController.swift */; };
 		0D90D66B1CDBCF210014BF56 /* DetailSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D90D66A1CDBCF210014BF56 /* DetailSettingViewController.swift */; };
 		0D9118BD1CD3CDA6003D3A77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9118BC1CD3CDA6003D3A77 /* AppDelegate.swift */; };
 		0D9118BF1CD3CDA6003D3A77 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9118BE1CD3CDA6003D3A77 /* MainViewController.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		0D56E26F1CEF7C2B000885CA /* MenuBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBarViewController.swift; sourceTree = "<group>"; };
+		0D56E2711CF2A56D000885CA /* AdvancedSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedSettingViewController.swift; sourceTree = "<group>"; };
 		0D90D66A1CDBCF210014BF56 /* DetailSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailSettingViewController.swift; sourceTree = "<group>"; };
 		0D9118B91CD3CDA6003D3A77 /* IRRemote_V6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IRRemote_V6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D9118BC1CD3CDA6003D3A77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				0D9118BE1CD3CDA6003D3A77 /* MainViewController.swift */,
 				0D90D66A1CDBCF210014BF56 /* DetailSettingViewController.swift */,
 				0D56E26F1CEF7C2B000885CA /* MenuBarViewController.swift */,
+				0D56E2711CF2A56D000885CA /* AdvancedSettingViewController.swift */,
 				0D9118C01CD3CDA6003D3A77 /* Main.storyboard */,
 				0D9118C51CD3CDA6003D3A77 /* LaunchScreen.storyboard */,
 				0D9118C31CD3CDA6003D3A77 /* Assets.xcassets */,
@@ -280,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D9118EB1CD3CEF9003D3A77 /* protocal.swift in Sources */,
+				0D56E2721CF2A56D000885CA /* AdvancedSettingViewController.swift in Sources */,
 				0DD9F93F1CD7E7AB00D33A3A /* configurarion.swift in Sources */,
 				0D90D66B1CDBCF210014BF56 /* DetailSettingViewController.swift in Sources */,
 				0D9118BF1CD3CDA6003D3A77 /* MainViewController.swift in Sources */,

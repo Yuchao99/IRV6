@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class MainViewController: UIViewController, UIPopoverPresentationControllerDelegate,   unwindValue {
+class MainViewController: UIViewController, UIPopoverPresentationControllerDelegate,   unwindValue, unwindItems, unwindAdValue{
     
     //init all the business parameters
     var operations = Model()
@@ -110,6 +110,7 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    
         if segue.identifier == "detailSettingSegue" {
             
             let detailSettingViewController = segue.destinationViewController as! DetailSettingViewController
@@ -140,7 +141,15 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
             
             let menuBarViewController = segue.destinationViewController as! MenuBarViewController
             menuBarViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
-            menuBarViewController.popoverPresentationController?.delegate = self
+            menuBarViewController.popoverPresentationController!.delegate = self
+            
+            menuBarViewController.thisItem = self
+            
+        }else if segue.identifier == "advancedSettingSegue"{
+            let advancedSettingViewController = segue.destinationViewController as! AdvancedSettingViewController
+            advancedSettingViewController.settings = self.settings
+            advancedSettingViewController.adDelegate = self
+            
         }
         
     }
@@ -149,11 +158,34 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
         return UIModalPresentationStyle.None
     }
     
+    //can't solve the problem that why this method isn't called when use dismiss in next controller programmly
+    func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
+        
+        
+    }
+    
+    func popoverPresentationControllerShouldDismissPopover(popoverPresentationController: UIPopoverPresentationController) -> Bool {
+        return true
+    }
+
+
     func updateSettings(setting: Configuration) {
         self.settings = setting
-        print(settings.ruValue)
+        print("parent shows up")
         
         self.viewDidLoad()
+    }
+    
+    func whichItem(num: Int) {
+        if num == 1{
+            performSegueWithIdentifier("advancedSettingSegue", sender: self)
+        }
+        
+    }
+    
+    func updateAdValue(setting: Configuration) {
+        self.settings = setting
+        print("parent shows up")
     }
 
 }
