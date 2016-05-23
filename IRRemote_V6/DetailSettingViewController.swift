@@ -14,7 +14,7 @@ protocol unwindValue {
     func updateSettings(setting: Configuration)
 }
 
-class DetailSettingViewController: UIViewController, UINavigationControllerDelegate {
+class DetailSettingViewController: UIViewController, UINavigationControllerDelegate, UITextFieldDelegate {
     
     //declare all the UI components
     @IBOutlet weak var labelMainTitle: UILabel!
@@ -26,6 +26,8 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
     @IBOutlet weak var sliderSub: UISlider!
     @IBOutlet weak var btnLabelValueSub: UIButton!
     @IBOutlet weak var labelUnitMarkSub: UILabel!
+    @IBOutlet weak var textValue: UITextField!
+    @IBOutlet weak var textValueSub: UITextField!
     
     
     
@@ -46,6 +48,9 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         loadingSetting()
         
         navigationController?.delegate = self
+        
+        textValue.delegate = self
+        textValueSub.delegate = self
         
         operation = Model()
         node = Protocal()
@@ -105,6 +110,8 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         sliderSub.hidden = true
         btnLabelValueSub.hidden = true
         labelUnitMarkSub.hidden = true
+        textValue.hidden = true
+        textValueSub.hidden = true
         
         btnLabelValueSub.alpha = 0
         labelUnitMarkSub.alpha = 0
@@ -117,6 +124,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
             btnLabelValue.setTitle(String(value), forState: .Normal)
             labelUnitMark.text = "Seconds"
             maxValue = 60
+            textValue.text = String(value)
             
         case .delayToOff:
             labelMainTitle.text = "Delay To Off Setting"
@@ -131,6 +139,8 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
             labelUnitMarkSub.hidden = false
             labelUnitMark.text = "Mins"
             labelUnitMarkSub.text = "Seconds"
+            textValue.text = String(value)
+            textValueSub.text = String(valueSub)
             
         case .rampDown:
             labelMainTitle.text = "Ramp Down Setting"
@@ -139,6 +149,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
             btnLabelValue.setTitle(String(value), forState: .Normal)
             labelUnitMark.text = "Seconds"
             maxValue = 60
+            textValue.text = String(value)
             
         case .maxDimming:
             labelMainTitle.text = "Max Dimming Setting"
@@ -147,6 +158,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
             btnLabelValue.setTitle(String(value), forState: .Normal)
             labelUnitMark.text = "%"
             maxValue = 100
+            textValue.text = String(value)
         
         case .minDimming:
             labelMainTitle.text = "Min Dimming Setting"
@@ -154,6 +166,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
             value = settings.minDimValue
             btnLabelValue.setTitle(String(value), forState: .Normal)
             maxValue = 100
+            textValue.text = String(value)
             
         case .sensitivity:
             labelMainTitle.text = "Sensitivity Setting"
@@ -162,6 +175,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
             btnLabelValue.setTitle(String(value), forState: .Normal)
             labelUnitMark.text = "%"
             maxValue = 100
+            textValue.text = String(value)
         
         case .lightSensor:
             labelMainTitle.text = "Light Sensor Setting"
@@ -169,6 +183,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
             btnLabelValue.setTitle(String(value), forState: .Normal)
             maxValue = 100
             labelUnitMark.text = "%"
+            textValue.text = String(value)
             
         default:
             labelMainTitle.text = "Setting"
@@ -177,6 +192,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
             btnLabelValue.setTitle("0", forState: .Normal)
             labelUnitMark.text = "NULL"
             maxValue = 100
+            textValue.text = ""
         }
         
 
@@ -229,10 +245,18 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
     }
     
     @IBAction func btnValue(sender: AnyObject) {
-
+        
+        textValue.hidden = false
+        btnLabelValue.hidden = true
+        
     
     }
     
+    @IBAction func btnValueSub(sender: AnyObject) {
+        
+        textValueSub.hidden = false
+        btnLabelValueSub.hidden = true
+    }
     
     @IBAction func btnSend(sender: AnyObject) {
         
@@ -268,7 +292,20 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         node.play()
     }
     
-
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+//        switch textField {
+//        case textValue:
+//            <#code#>
+//        default:
+//            <#code#>
+//        }
+    }
     
     override func didMoveToParentViewController(parent: UIViewController?) {
         

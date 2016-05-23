@@ -373,6 +373,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gze-Ox-h6D">
                                 <rect key="frame" x="204" y="367" width="61" height="30"/>
                                 <state key="normal" title="subvalue"/>
+                                <connections>
+                                    <action selector="btnValueSub:" destination="aOs-8t-6Ag" eventType="touchUpInside" id="SXL-QW-hh4"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="unit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Byd-ah-Nsj">
                                 <rect key="frame" x="226" y="421" width="29" height="21"/>
@@ -387,6 +390,16 @@
                                     <action selector="btnSend:" destination="aOs-8t-6Ag" eventType="touchUpInside" id="nrz-q7-8sW"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bPx-om-VyS">
+                                <rect key="frame" x="99" y="344" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OPH-sj-Sdf">
+                                <rect key="frame" x="204" y="344" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -400,6 +413,8 @@
                         <outlet property="labelUnitMarkSub" destination="Byd-ah-Nsj" id="Hex-7q-pNx"/>
                         <outlet property="sliderMain" destination="xfw-df-03i" id="fZS-W0-kEr"/>
                         <outlet property="sliderSub" destination="EZL-zY-G5N" id="ggR-5i-8iN"/>
+                        <outlet property="textValue" destination="bPx-om-VyS" id="ImJ-qS-4GV"/>
+                        <outlet property="textValueSub" destination="OPH-sj-Sdf" id="045-nE-feD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bAe-DW-jCG" userLabel="First Responder" sceneMemberID="firstResponder"/>
