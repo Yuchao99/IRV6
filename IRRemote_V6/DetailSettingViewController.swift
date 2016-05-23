@@ -206,24 +206,31 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         switch type {
         case .rampUP:
             settings.ruValue = Int(sliderMain.value * Float(maxValue) )
+            textValue.text = String(Int(sliderMain.value * Float(maxValue)))
         
         case .rampDown:
             settings.rdValue = Int(sliderMain.value * Float(maxValue) )
+            textValue.text = String(Int(sliderMain.value * Float(maxValue)))
             
         case .maxDimming:
             settings.maxDimValue = Int(sliderMain.value * Float(maxValue) )
+            textValue.text = String(Int(sliderMain.value * Float(maxValue)))
             
         case .minDimming:
             settings.minDimValue = Int(sliderMain.value * Float(maxValue) )
+            textValue.text = String(Int(sliderMain.value * Float(maxValue)))
         
         case .sensitivity:
             settings.sensValue = Int(sliderMain.value * Float(maxValue) )
+            textValue.text = String(Int(sliderMain.value * Float(maxValue)))
         
         case .delayToOff:
             settings.delMValue = Int(sliderMain.value * Float(maxValue))
+            textValue.text = String(Int(sliderMain.value * Float(maxValue)))
           
         case .lightSensor:
             settings.maxLuxValue = Int(sliderMain.value * Float(maxValue))
+            textValue.text = String(Int(sliderMain.value * Float(maxValue)))
         
         default:
             print("no value is changed")
@@ -237,6 +244,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         case .delayToOff:
             btnLabelValueSub.setTitle(String(Int(sliderSub.value * Float(maxValue) )), forState: .Normal)
             settings.delSValue = Int(sliderSub.value * Float(maxValue))
+            textValueSub.text = String(Int(sliderSub.value * Float(maxValue)))
         
         default:
             print("sub slider error")
@@ -292,6 +300,11 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         node.play()
     }
     
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        return true
+    }
+    
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
         textField.resignFirstResponder()
@@ -299,12 +312,40 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-//        switch textField {
-//        case textValue:
-//            <#code#>
-//        default:
-//            <#code#>
-//        }
+        
+        if textField == textValue {
+            
+            switch type {
+            case .rampUP:
+                settings.ruValue = Int(textValue.text!)
+                
+            case .rampDown:
+                settings.rdValue = Int(textValue.text!)
+                
+            case .maxDimming:
+                settings.maxDimValue = Int(textValue.text!)
+                
+            case .minDimming:
+                settings.minDimValue = Int(textValue.text!)
+                
+            case .sensitivity:
+                settings.sensValue = Int(textValue.text!)
+                
+            case .delayToOff:
+                settings.delMValue = Int(textValue.text!)
+                
+            case .lightSensor:
+                settings.maxLuxValue = Int(textValue.text!)
+                
+            default:
+                print("no value is changed")
+            }
+            self.sliderMain.setValue(Float(Float(textValue.text!)! / 100), animated: true)
+
+        }else{
+            settings.delSValue = Int(textValueSub.text!)
+            self.sliderSub.setValue(Float(Float(textValueSub.text!)! / 100), animated: true)
+        }
     }
     
     override func didMoveToParentViewController(parent: UIViewController?) {
