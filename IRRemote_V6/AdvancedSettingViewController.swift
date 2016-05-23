@@ -12,8 +12,15 @@ import AVFoundation
 protocol unwindAdValue {
     func updateAdValue(setting: Configuration)
 }
-class AdvancedSettingViewController: UIViewController,UINavigationControllerDelegate {
+class AdvancedSettingViewController: UIViewController,UINavigationControllerDelegate,UITextFieldDelegate {
 
+    @IBOutlet weak var textDiff: UITextField!
+    @IBOutlet weak var textMinSlope: UITextField!
+    @IBOutlet weak var textMaxSlope: UITextField!
+    @IBOutlet weak var textKeyMod: UITextField!
+
+
+    
     
     var settings = Configuration()
     var type =   Configuration.settingTypes()
@@ -29,6 +36,10 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
         loadingSetting()
         
         navigationController?.delegate = self
+        textDiff.delegate = self
+        textMinSlope.delegate = self
+        textMaxSlope.delegate = self
+        textKeyMod.delegate = self
         
         operation = Model()
         node = Protocal()
@@ -56,8 +67,23 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
     
     func loadingSetting(){
         
+        textDiff.text = String(settings.diffValue)
+        textMinSlope.text = String(settings.minSlopeValue)
+        textMaxSlope.text = String(settings.maxSlopeValue)
+        textKeyMod.text = String(settings.keyModValue)
+        
     }
     
+    @IBAction func btnSendAction(sender: AnyObject) {
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        return true
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        //todo check overlapping, then add scrollable view and make view shift
+    }
     override func didMoveToParentViewController(parent: UIViewController?) {
         if parent == nil{
             print("back to parent")
