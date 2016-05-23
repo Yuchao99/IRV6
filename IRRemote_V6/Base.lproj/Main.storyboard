@@ -189,6 +189,9 @@
                                 <rect key="frame" x="4" y="83" width="292" height="67"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="About"/>
+                                <connections>
+                                    <action selector="btnAboutAction:" destination="gAX-5C-pUm" eventType="touchUpInside" id="2Fc-yZ-GMu"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -289,6 +292,14 @@
                                 <state key="normal" title="Send"/>
                                 <connections>
                                     <action selector="btnSendAction:" destination="AYE-eC-qgA" eventType="touchUpInside" id="ngn-Mn-eu7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omL-xA-Rxs">
+                                <rect key="frame" x="130" y="377" width="97" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="send all"/>
+                                <connections>
+                                    <action selector="btnSendAllAdSettings:" destination="AYE-eC-qgA" eventType="touchUpInside" id="5Wz-iw-lOG"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vJX-a9-4Eb">

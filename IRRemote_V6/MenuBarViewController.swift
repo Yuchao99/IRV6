@@ -34,6 +34,10 @@ class MenuBarViewController: UIViewController,UINavigationControllerDelegate {
         self.thisItem.whichItem(1)
     }
     
+    @IBAction func btnAboutAction(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+        //todo add about logic
+    }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
           

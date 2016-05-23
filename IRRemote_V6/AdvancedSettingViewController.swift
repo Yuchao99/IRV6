@@ -97,6 +97,11 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
         node.play()
     }
     
+    @IBAction func btnSendAllAdSettings(sender: AnyObject) {
+        
+    }
+    
+    
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         return true
     }
@@ -109,6 +114,18 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
     
     func textFieldDidEndEditing(textField: UITextField) {
         //todo check overlapping, then add scrollable view and make view shift
+        switch textField {
+        case textDiff:
+            self.settings.diffValue = Int(textDiff.text!)
+        case textMinSlope:
+            self.settings.minSlopeValue = Int(textMinSlope.text!)
+        case textMaxSlope:
+            self.settings.maxSlopeValue = Int(textMaxSlope.text!)
+        case textKeyMod:
+            self.settings.keyModValue = Int(textKeyMod.text!)
+        default:
+            print("error happens and close the keyboard outsides")
+        }
         
     }
     override func didMoveToParentViewController(parent: UIViewController?) {
