@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IRRemote_V6/AdvancedSettingViewController.swift"
-            timestampString = "485667698.932069"
+            timestampString = "485724259.293975"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "btnSendAction(_:)"
             landmarkType = "5">
          </BreakpointContent>

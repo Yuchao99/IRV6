@@ -41,6 +41,7 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
         textMaxSlope.delegate = self
         textKeyMod.delegate = self
         
+        
         operation = Model()
         node = Protocal()
         engine = AVAudioEngine()
@@ -77,12 +78,19 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
     @IBAction func btnSendAction(sender: AnyObject) {
     }
     
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        return true
+    }
+    
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
         //todo check overlapping, then add scrollable view and make view shift
+        
     }
     override func didMoveToParentViewController(parent: UIViewController?) {
         if parent == nil{
