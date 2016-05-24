@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Configuration{
+class Configuration: NSObject, NSCoding{
     
     enum settingTypes: Int {
         case rampUP
@@ -64,6 +64,7 @@ class Configuration{
         }
     }
     
+    var name: String!
     
     var ruValue: Int!
     var rdValue: Int!
@@ -81,7 +82,10 @@ class Configuration{
     var maxSlopeValue: Int!
     var keyModValue: Int!
     
-    init(){
+    override init(){
+        
+        name = "Default"
+        
         ruValue = 4
         rdValue = 5
         delMValue = 0
@@ -97,6 +101,41 @@ class Configuration{
         minSlopeValue = 200
         maxSlopeValue = 2000
         keyModValue = 11111
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(name, forKey: "name")
+        aCoder.encodeObject(ruValue, forKey: "ruValue")
+        aCoder.encodeObject(rdValue, forKey: "rdValue")
+        aCoder.encodeObject(delMValue, forKey: "delMValue")
+        aCoder.encodeObject(delSValue, forKey: "delSValue")
+        aCoder.encodeObject(maxDimValue, forKey: "maxDimValue")
+        aCoder.encodeObject(minDimValue, forKey: "minDimValue")
+        aCoder.encodeObject(sensValue, forKey: "sensValue")
+        aCoder.encodeObject(maxLuxValue, forKey: "maxLuxValue")
+        aCoder.encodeObject(alsValue, forKey: "alsValue")
+        aCoder.encodeObject(diffValue, forKey: "diffValue")
+        aCoder.encodeObject(minSlopeValue, forKey: "minSlopeValue")
+        aCoder.encodeObject(maxSlopeValue, forKey: "maxSlopeValue")
+        aCoder.encodeObject(keyModValue, forKey: "keyModValue")
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        name = aDecoder.decodeObjectForKey("name") as! String
+        ruValue = aDecoder.decodeObjectForKey("ruValue") as! Int
+        rdValue = aDecoder.decodeObjectForKey("rdValue") as! Int
+        delMValue = aDecoder.decodeObjectForKey("delMValue") as! Int
+        delSValue = aDecoder.decodeObjectForKey("delSValue") as! Int
+        maxDimValue = aDecoder.decodeObjectForKey("maxDimValue") as! Int
+        minDimValue = aDecoder.decodeObjectForKey("minDimValue") as! Int
+        sensValue = aDecoder.decodeObjectForKey("sensValue") as! Int
+        maxLuxValue = aDecoder.decodeObjectForKey("maxLuxValue") as! Int
+        alsValue = aDecoder.decodeObjectForKey("alsValue") as! Bool
+        diffValue = aDecoder.decodeObjectForKey("diffValue") as! Int
+        minSlopeValue = aDecoder.decodeObjectForKey("minSlopeValue") as! Int
+        maxSlopeValue = aDecoder.decodeObjectForKey("maxSlopeValue") as! Int
+        keyModValue = aDecoder.decodeObjectForKey("keyModValue") as! Int
+        
     }
 
 }

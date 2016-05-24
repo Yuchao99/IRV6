@@ -70,6 +70,10 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
         // Dispose of any resources that can be recreated.
     }
     
+    func loadDatabase(){
+        
+    }
+    
     func loadSetting(config: Configuration){
         //two parts, first time open app, load default setting; loading from loal files
         //now just use default setting
