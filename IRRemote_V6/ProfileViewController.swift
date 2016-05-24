@@ -8,28 +8,46 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+protocol unwindProfile {
+    func profileSelected(num: Int)
+}
 
+class ProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,UINavigationControllerDelegate {
+
+    
+    @IBOutlet weak var picker: UIPickerView!
+    var thisNum: unwindProfile!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        picker.delegate = self
+        picker.dataSource = self
+        
+        navigationController?.delegate = self
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "losing him is blue"
     }
-    */
-
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print("works")
+        dismissViewControllerAnimated(true, completion: nil)
+        print(row)
+        self.thisNum.profileSelected(row)
+    }
 }

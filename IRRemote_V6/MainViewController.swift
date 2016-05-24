@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class MainViewController: UIViewController, UIPopoverPresentationControllerDelegate,   unwindValue, unwindItems, unwindAdValue{
+class MainViewController: UIViewController, UIPopoverPresentationControllerDelegate, unwindValue, unwindItems, unwindAdValue, unwindProfile{
     
     //init all the business parameters
     var operations = Model()
@@ -155,6 +155,8 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
             let profileSelectViewController = segue.destinationViewController as! ProfileViewController
             profileSelectViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
             profileSelectViewController.popoverPresentationController!.delegate = self
+            
+            profileSelectViewController.thisNum = self
         }
         
     }
@@ -191,6 +193,10 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
     func updateAdValue(setting: Configuration) {
         self.settings = setting
         print("parent shows up")
+    }
+    
+    func profileSelected(num: Int) {
+        print(num)
     }
 
 }

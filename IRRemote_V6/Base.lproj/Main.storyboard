@@ -181,12 +181,20 @@
                     <view key="view" contentMode="scaleToFill" id="12m-AU-R6R">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Th5-BS-4ho">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                            </pickerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="300" height="200"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="300" height="200"/>
+                    <connections>
+                        <outlet property="picker" destination="Th5-BS-4ho" id="z1b-kY-pmf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8i0-A3-s5L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
