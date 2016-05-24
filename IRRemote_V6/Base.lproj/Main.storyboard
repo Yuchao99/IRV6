@@ -124,9 +124,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PW8-hh-skc">
-                                <rect key="frame" x="20" y="72" width="265" height="30"/>
+                                <rect key="frame" x="118" y="78" width="100" height="13"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Profile name "/>
+                                <connections>
+                                    <segue destination="CXU-6K-vHn" kind="popoverPresentation" identifier="profileSeletSegue" popoverAnchorView="PW8-hh-skc" id="hdS-Tg-ksT">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
+                                    </segue>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -164,6 +169,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1178" y="436"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="N7O-6W-3lt">
+            <objects>
+                <viewController id="CXU-6K-vHn" customClass="ProfileViewController" customModule="IRRemote_V6" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5NG-Qf-xCW"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZhW-9E-20e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="12m-AU-R6R">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="300" height="200"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="200"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8i0-A3-s5L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1028" y="-172"/>
         </scene>
         <!--Menu Bar View Controller-->
         <scene sceneID="JN2-Pr-ACq">
@@ -206,7 +233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1w5-z2-FdC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1334" y="-187"/>
+            <point key="canvasLocation" x="1405" y="-187"/>
         </scene>
         <!--Advanced Setting View Controller-->
         <scene sceneID="d34-LE-92Q">

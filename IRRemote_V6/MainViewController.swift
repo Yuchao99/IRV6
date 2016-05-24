@@ -150,6 +150,11 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
             advancedSettingViewController.settings = self.settings
             advancedSettingViewController.adDelegate = self
             
+        }else if segue.identifier == "profileSeletSegue"{
+        
+            let profileSelectViewController = segue.destinationViewController as! ProfileViewController
+            profileSelectViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+            profileSelectViewController.popoverPresentationController!.delegate = self
         }
         
     }
