@@ -38,11 +38,11 @@ class ProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "losing him is blue"
+        return self.profilesList[row]
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 1
+        return self.profilesList.count
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
