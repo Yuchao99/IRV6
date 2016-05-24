@@ -31,7 +31,7 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
     @IBOutlet weak var labelMaxDimming: UILabel!
     @IBOutlet weak var labelMinDimming: UILabel!
     @IBOutlet weak var labelSensitivity: UILabel!
-    @IBOutlet weak var ALS: UILabel!
+    @IBOutlet weak var labelALS: UILabel!
     
     
     
@@ -43,8 +43,11 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
     @IBOutlet weak var btnLabelSensitivity: UIButton!
     @IBOutlet weak var btnLabelALS: UIButton!
     @IBOutlet weak var btnLabelMenu: UIBarButtonItem!
-    
+    @IBOutlet weak var btnLabelProfile: UIButton!
+    @IBOutlet weak var btnLabelSave: UIButton!
+    @IBOutlet weak var btnLabelDelete: UIButton!
 
+    @IBOutlet weak var textProfile: UITextField!
     
     
     override func viewDidLoad() {
@@ -54,6 +57,7 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
             self.profiles = self.databaseRetrieve()!
             
         }else{
+            self.profiles.append(self.settings)
             loadSetting(settings)
             print("retrieve failed, use default data")
         }
@@ -121,6 +125,7 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
         //todo @yuchao make it enable or disable
         btnLabelALS.setTitle(String(config.alsValue), forState: .Normal)
         
+        self.editProfileMode(false)
     }
     
     
@@ -234,6 +239,17 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
     
     func profileSelected(num: Int) {
         print(num)
+        if num == 0{
+            
+        }else{
+            self.editProfileMode(true)
+        }
+    }
+    
+    func editProfileMode(isEditing: Bool){
+        self.btnLabelSave.hidden = !isEditing
+        self.btnLabelDelete.hidden = !isEditing
+        self.textProfile.hidden = !isEditing
     }
 
 }

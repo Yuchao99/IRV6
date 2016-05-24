@@ -115,14 +115,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ye4-gd-98Q">
-                                <rect key="frame" x="111" y="491" width="107" height="70"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="send"/>
-                                <connections>
-                                    <action selector="sendBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rqL-TM-fYI"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PW8-hh-skc">
                                 <rect key="frame" x="118" y="78" width="100" height="13"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -131,6 +123,27 @@
                                     <segue destination="CXU-6K-vHn" kind="popoverPresentation" identifier="profileSeletSegue" popoverAnchorView="PW8-hh-skc" id="hdS-Tg-ksT">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
                                     </segue>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ug-M1-Hbr">
+                                <rect key="frame" x="77" y="489" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4S6-gn-ozG">
+                                <rect key="frame" x="225" y="489" width="45" height="30"/>
+                                <state key="normal" title="Delete"/>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DVO-md-iIk">
+                                <rect key="frame" x="121" y="92" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ye4-gd-98Q">
+                                <rect key="frame" x="111" y="440" width="107" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="send"/>
+                                <connections>
+                                    <action selector="sendBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rqL-TM-fYI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -147,21 +160,25 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="ALS" destination="dVx-cW-nKa" id="pVv-ns-JaB"/>
                         <outlet property="btnLabelALS" destination="rLN-Pl-iji" id="N2i-mU-Xyb"/>
                         <outlet property="btnLabelDelayToOff" destination="rfS-KO-kfZ" id="Gls-ox-lAl"/>
+                        <outlet property="btnLabelDelete" destination="4S6-gn-ozG" id="dj4-tu-jNG"/>
                         <outlet property="btnLabelMaxDimming" destination="vfM-Ad-nG4" id="hXk-cj-Ja9"/>
                         <outlet property="btnLabelMenu" destination="DJA-rW-eBe" id="4A3-wO-nzh"/>
                         <outlet property="btnLabelMinDimming" destination="LnD-I6-Ron" id="tcD-Hh-Txg"/>
+                        <outlet property="btnLabelProfile" destination="PW8-hh-skc" id="Z44-Uu-zKI"/>
                         <outlet property="btnLabelRampDown" destination="il5-2K-M4w" id="79x-zw-ATo"/>
                         <outlet property="btnLabelRampUp" destination="DuT-sh-3EL" id="Ize-FK-gkz"/>
+                        <outlet property="btnLabelSave" destination="0ug-M1-Hbr" id="P09-NY-if0"/>
                         <outlet property="btnLabelSensitivity" destination="MmY-rA-GSp" id="Hqg-JZ-MOn"/>
+                        <outlet property="labelALS" destination="dVx-cW-nKa" id="P1a-6K-QHy"/>
                         <outlet property="labelDelayToOff" destination="QbA-IS-ds8" id="Sp9-gi-8sx"/>
                         <outlet property="labelMaxDimming" destination="WaM-7H-PSC" id="0oz-7f-5vA"/>
                         <outlet property="labelMinDimming" destination="dEc-EI-Rfc" id="SMu-Hp-cum"/>
                         <outlet property="labelRampDown" destination="hpl-CT-FeV" id="YV6-PF-Q8p"/>
                         <outlet property="labelRampUp" destination="B7A-h4-C6I" id="k8f-zE-ehf"/>
                         <outlet property="labelSensitivity" destination="1wy-as-KYd" id="UM5-Qx-nHH"/>
+                        <outlet property="textProfile" destination="DVO-md-iIk" id="slJ-q8-l87"/>
                         <segue destination="aOs-8t-6Ag" kind="show" identifier="detailSettingSegue" id="hvS-Rt-aF1"/>
                         <segue destination="AYE-eC-qgA" kind="show" identifier="advancedSettingSegue" id="CtA-xh-Znn"/>
                     </connections>
