@@ -150,6 +150,9 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
     @IBAction func btnMenuAction(sender: AnyObject) {
     }
     
+    @IBAction func btnProfilesAction(sender: AnyObject) {
+        
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     
@@ -199,6 +202,13 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
             profileSelectViewController.popoverPresentationController!.delegate = self
             
             profileSelectViewController.thisNum = self
+            
+            var profileNameList = [String]()
+            for i in self.profiles{
+                profileNameList.append(i.name)
+            }
+            profileSelectViewController.profilesList = profileNameList
+            
         }
         
     }

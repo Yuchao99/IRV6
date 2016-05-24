@@ -16,7 +16,10 @@ class ProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
     
     @IBOutlet weak var picker: UIPickerView!
+    
     var thisNum: unwindProfile!
+    
+    var profilesList = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,8 @@ class ProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         picker.dataSource = self
         
         navigationController?.delegate = self
+        
+        print(self.profilesList[0])
         
     }
 

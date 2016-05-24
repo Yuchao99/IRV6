@@ -120,6 +120,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Profile name "/>
                                 <connections>
+                                    <action selector="btnProfilesAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VHI-vd-F3V"/>
                                     <segue destination="CXU-6K-vHn" kind="popoverPresentation" identifier="profileSeletSegue" popoverAnchorView="PW8-hh-skc" id="hdS-Tg-ksT">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
                                     </segue>
