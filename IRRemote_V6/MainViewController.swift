@@ -11,6 +11,12 @@ import AVFoundation
 
 class MainViewController: UIViewController, UIPopoverPresentationControllerDelegate, unwindValue, unwindItems, unwindAdValue, unwindProfile{
     
+    //database
+    var profiles = [Configuration]()
+    var profileIndex = Int(0)
+    let defaults = NSUserDefaults.standardUserDefaults()
+
+    
     //init all the business parameters
     var operations = Model()
     var settings = Configuration()
@@ -43,7 +49,15 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadSetting(settings)
+        if ((self.databaseRetrieve()) != nil) {
+            print("retrieve success")
+            self.profiles = self.databaseRetrieve()!
+            
+        }else{
+            loadSetting(settings)
+            print("retrieve failed, use default data")
+        }
+        
 
         //start your engine
         node = Protocal()
@@ -70,7 +84,26 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
         // Dispose of any resources that can be recreated.
     }
     
-    func loadDatabase(){
+    func databaseRetrieve() -> [Configuration]?{
+        if let rawData = self.defaults.objectForKey("profiles") as? NSData{
+            let processedData = NSKeyedUnarchiver.unarchiveObjectWithData(rawData) as! [Configuration]
+            self.profileIndex = self.defaults.objectForKey("profileIndex") as! Int
+            print("retrieve data success")
+            return processedData
+        }else{
+            print("retrieve data field")
+            return nil
+        }
+    }
+    
+    func databaseSave(data: AnyObject, index: Int){
+        let processedData = NSKeyedArchiver.archivedDataWithRootObject(data)
+        self.defaults.setObject(processedData, forKey: "profiles")
+        self.defaults.setObject(index, forKey: "profileIndex")
+        print("save profiles")
+    }
+    
+    func databaseDelete(){
         
     }
     
