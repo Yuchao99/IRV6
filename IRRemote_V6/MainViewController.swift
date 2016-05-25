@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class MainViewController: UIViewController, UIPopoverPresentationControllerDelegate, unwindValue, unwindItems, unwindAdValue, unwindProfile{
+class MainViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITextFieldDelegate, unwindValue, unwindItems, unwindAdValue, unwindProfile{
     
     //database
     var profiles = [Configuration]()
@@ -51,18 +51,27 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        if ((self.databaseRetrieve()) != nil) {
+        
+        if ((self.databaseRetrieveProfiles()) != nil) {
             print("retrieve success")
-            self.profiles = self.databaseRetrieve()!
+            self.profiles = self.databaseRetrieveProfiles()!
+            self.profileIndex = self.databaseRetrieveIndex()
+            loadSetting(self.profiles[self.profileIndex])
+            self.editProfileMode(false)
+            print("loading retrieved data into system")
             
         }else{
             self.profiles.append(self.settings)
+            self.databaseSave(self.profiles, index: 0)
             loadSetting(settings)
+            self.editProfileMode(false)
             print("retrieve failed, use default data")
         }
         
-
+        textProfile.delegate = self
+        
         //start your engine
         node = Protocal()
         engine = AVAudioEngine()
@@ -88,7 +97,7 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
         // Dispose of any resources that can be recreated.
     }
     
-    func databaseRetrieve() -> [Configuration]?{
+    func databaseRetrieveProfiles() -> [Configuration]?{
         if let rawData = self.defaults.objectForKey("profiles") as? NSData{
             let processedData = NSKeyedUnarchiver.unarchiveObjectWithData(rawData) as! [Configuration]
             self.profileIndex = self.defaults.objectForKey("profileIndex") as! Int
@@ -97,6 +106,14 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
         }else{
             print("retrieve data field")
             return nil
+        }
+    }
+    
+    func databaseRetrieveIndex() -> Int{
+        if let index = self.defaults.objectForKey("profileIndex") as? Int{
+            return index
+        }else{
+            return 0
         }
     }
     
@@ -125,7 +142,9 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
         //todo @yuchao make it enable or disable
         btnLabelALS.setTitle(String(config.alsValue), forState: .Normal)
         
-        self.editProfileMode(false)
+        textProfile.text = config.name
+        
+        
     }
     
     
@@ -151,6 +170,14 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
     }
     
     @IBAction func btnProfilesAction(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func btnProfileSave(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func btnProfileDelete(sender: AnyObject) {
         
     }
     
@@ -204,9 +231,14 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
             profileSelectViewController.thisNum = self
             
             var profileNameList = [String]()
+            print("this is original list size:")
+            print(profileNameList.count)
             for i in self.profiles{
                 profileNameList.append(i.name)
             }
+            print(profileNameList.count)
+            profileNameList.append("New Profile")
+            
             profileSelectViewController.profilesList = profileNameList
             
         }
@@ -227,12 +259,26 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
         return true
     }
 
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        return true
+    }
 
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        print("doen with deiting a")
+        self.settings.name = self.textProfile.text!
+    }
+    
     func updateSettings(setting: Configuration) {
         self.settings = setting
         print("parent shows up")
         
-        self.viewDidLoad()
+        //self.viewDidLoad()
+        self.loadSetting(self.settings)
     }
     
     func whichItem(num: Int) {
@@ -251,7 +297,28 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
         print(num)
         if num == 0{
             
+            self.profileIndex = num
+            self.btnLabelSave.enabled = false
+            loadSetting(self.profiles[self.profileIndex])
+            print("select default file")
+            
+            self.editProfileMode(false)
         }else{
+            
+            
+            self.profileIndex = num
+            self.btnLabelSave.enabled = true
+            
+            
+            if num == self.profiles.count{
+                self.settings = Configuration()
+                loadSetting(settings)
+                print("open a new file ")
+            }else{
+                loadSetting(self.profiles[self.profileIndex])
+                print("select this index file", num)
+            }
+           
             self.editProfileMode(true)
         }
     }
