@@ -270,6 +270,7 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
     
     func textFieldDidEndEditing(textField: UITextField) {
         print("doen with deiting a")
+        
         self.settings.name = self.textProfile.text!
     }
     
@@ -305,7 +306,7 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
             self.editProfileMode(false)
         }else{
             
-            
+            //todo handle profile index for new file and new file delete
             self.profileIndex = num
             self.btnLabelSave.enabled = true
             
@@ -313,7 +314,9 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
             if num == self.profiles.count{
                 self.settings = Configuration()
                 loadSetting(settings)
+                self.textProfile.text = "New Profile"
                 print("open a new file ")
+                
             }else{
                 loadSetting(self.profiles[self.profileIndex])
                 print("select this index file", num)
