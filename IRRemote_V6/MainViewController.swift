@@ -175,10 +175,34 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
     
     @IBAction func btnProfileSave(sender: AnyObject) {
         
+        //todo add logic for different situation of saving profiles: new one and update one
+        if self.profiles.count == self.profileIndex{
+            self.profiles.append(self.settings)
+            self.databaseSave(self.profiles, index: self.profileIndex)
+            print("save new file success")
+        }else{
+            self.databaseSave(self.profiles, index: self.profileIndex)
+            print("update profile success")
+        }
+        
+        print("save profiels success")
     }
     
     @IBAction func btnProfileDelete(sender: AnyObject) {
+       
+        if self.profileIndex ==  self.profiles.count{
+            
+            print("delete new file success")
+        }else{
+            self.profiles.removeAtIndex(self.profileIndex)
+            
+            print("delete file at index success")
+        }
+        self.profileIndex = 0
+        self.loadSetting(self.profiles[self.profileIndex])
         
+        self.databaseSave(self.profiles, index: self.profileIndex)
+        self.editProfileMode(false)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
