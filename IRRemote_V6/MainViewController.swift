@@ -58,7 +58,9 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
             print("retrieve success")
             self.profiles = self.databaseRetrieveProfiles()!
             self.profileIndex = self.databaseRetrieveIndex()
-            loadSetting(self.profiles[self.profileIndex])
+            self.settings = self.profiles[self.profileIndex]
+            loadSetting(self.settings)
+            
             self.editProfileMode(false)
             print("loading retrieved data into system")
             
@@ -142,6 +144,7 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
         //todo @yuchao make it enable or disable
         btnLabelALS.setTitle(String(config.alsValue), forState: .Normal)
         
+        btnLabelProfile.setTitle((config.name), forState: .Normal)
         textProfile.text = config.name
         
         
@@ -184,7 +187,8 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
             self.databaseSave(self.profiles, index: self.profileIndex)
             print("update profile success")
         }
-        
+        self.loadSetting(self.profiles[self.profileIndex])
+        self.editProfileMode(false)
         print("save profiels success")
     }
     
@@ -233,6 +237,8 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
             
             detailSettingViewController.delegate = self
             detailSettingViewController.settings = self.settings
+            print("this is name in parent view")
+            print(self.settings.name)
         }else if segue.identifier == "menuItemsSegue"{
             
             let menuBarViewController = segue.destinationViewController as! MenuBarViewController
@@ -264,6 +270,7 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
             profileNameList.append("New Profile")
             
             profileSelectViewController.profilesList = profileNameList
+            profileSelectViewController.thisIndex = self.profileIndex
             
         }
         
@@ -324,7 +331,7 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
             
             self.profileIndex = num
             self.btnLabelSave.enabled = false
-            loadSetting(self.profiles[self.profileIndex])
+            self.loadSetting(self.profiles[self.profileIndex])
             print("select default file")
             
             self.editProfileMode(false)
@@ -337,12 +344,15 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
             
             if num == self.profiles.count{
                 self.settings = Configuration()
-                loadSetting(settings)
-                self.textProfile.text = "New Profile"
+
+                self.settings.name = "New Profile"
+                self.loadSetting(settings)
+                
                 print("open a new file ")
                 
             }else{
-                loadSetting(self.profiles[self.profileIndex])
+                self.settings = self.profiles[self.profileIndex]
+                self.loadSetting(self.settings)
                 print("select this index file", num)
             }
            

@@ -46,6 +46,8 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         super.viewDidLoad()
         
         loadingSetting()
+        print("fllowed byh the name of this profile")
+        print(self.settings.name)
         
         navigationController?.delegate = self
         

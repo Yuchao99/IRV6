@@ -17,7 +17,9 @@ class ProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     @IBOutlet weak var picker: UIPickerView!
     
+    
     var thisNum: unwindProfile!
+    var thisIndex = Int(0)
     
     var profilesList = [String]()
     
@@ -30,6 +32,8 @@ class ProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         navigationController?.delegate = self
         
         print(self.profilesList[0])
+        
+        picker.selectRow(self.thisIndex, inComponent: 0, animated: true)
         
     }
 
