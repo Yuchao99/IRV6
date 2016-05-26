@@ -18,9 +18,6 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
     @IBOutlet weak var textMinSlope: UITextField!
     @IBOutlet weak var textMaxSlope: UITextField!
     @IBOutlet weak var textKeyMod: UITextField!
-
-
-    
     
     var settings = Configuration()
     var type =   Configuration.settingTypes()
@@ -29,6 +26,8 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
     var node: Protocal!
     var adDelegate: unwindAdValue!
     
+    let alertSize = UIAlertController(title: nil, message: "Error, input number exceeds range", preferredStyle: .Alert)
+    let alertNil = UIAlertController(title: nil, message: "Error, please input a valid number", preferredStyle: .Alert)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +58,10 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
         } catch let error as NSError {
             print(error)
         }
+        
+        //for error talorence
+        alertSize.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: nil))
+        alertNil.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: nil))
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,6 +79,8 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
     }
     
     @IBAction func btnSendAction(sender: UIButton!) {
+        
+        view.endEditing(true)
         
         var stream: String!
         
@@ -125,19 +130,57 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        //todo check overlapping, then add scrollable view and make view shift
-        switch textField {
-        case textDiff:
-            self.settings.diffValue = Int(textDiff.text!)
-        case textMinSlope:
-            self.settings.minSlopeValue = Int(textMinSlope.text!)
-        case textMaxSlope:
-            self.settings.maxSlopeValue = Int(textMaxSlope.text!)
-        case textKeyMod:
-            self.settings.keyModValue = Int(textKeyMod.text!)
-        default:
-            print("error happens and close the keyboard outsides")
+        
+        if Int(textField.text!) == nil{
+            
+            self.presentViewController(alertNil, animated: true, completion: nil)
+            
+            switch textField{
+            case textDiff:
+                self.textDiff.text = String(self.settings.diffValue)
+            case textMinSlope:
+                self.textMinSlope.text = String(self.settings.minSlopeValue)
+            case textMaxSlope:
+                self.textMaxSlope.text = String(self.settings.maxSlopeValue)
+            case textKeyMod:
+                self.textKeyMod.text = String(self.settings.keyModValue)
+            default:
+                print("input exceeds range error to reload settings")
+            }
+            
+        }else if Int(textField.text!)! > 65535{
+            
+            self.presentViewController(alertSize, animated: true, completion: nil)
+            
+            switch textField{
+            case textDiff:
+                self.textDiff.text = String(self.settings.diffValue)
+            case textMinSlope:
+                self.textMinSlope.text = String(self.settings.minSlopeValue)
+            case textMaxSlope:
+                self.textMaxSlope.text = String(self.settings.maxSlopeValue)
+            case textKeyMod:
+                self.textKeyMod.text = String(self.settings.keyModValue)
+            default:
+                print("input exceeds range error to reload settings")
+            }
+            
+        }else{
+            //todo check overlapping, then add scrollable view and make view shift
+            switch textField {
+                case textDiff:
+                    self.settings.diffValue = Int(textDiff.text!)
+                case textMinSlope:
+                    self.settings.minSlopeValue = Int(textMinSlope.text!)
+                case textMaxSlope:
+                    self.settings.maxSlopeValue = Int(textMaxSlope.text!)
+                case textKeyMod:
+                    self.settings.keyModValue = Int(textKeyMod.text!)
+                default:
+                    print("error happens and close the keyboard outsides")
+            }
         }
+
         
     }
     

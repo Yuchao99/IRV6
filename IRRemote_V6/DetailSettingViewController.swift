@@ -41,11 +41,8 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
     var maxValue: Int!
     var delegate: unwindValue!
     
-    let alertNumber = UIAlertController(title: nil, message: "Please Input Number Only", preferredStyle: UIAlertControllerStyle.Alert)
     let alertSize = UIAlertController(title: nil, message: "Error, input number exceeds range", preferredStyle: .Alert)
-    
-//        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
-//        self.presentViewController(alert, animated: true, completion: nil)
+    let alertNil = UIAlertController(title: nil, message: "Error, please input a valid number", preferredStyle: .Alert)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +76,8 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         
         //for error talorence
         alertSize.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: nil))
+        alertNil.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: nil))
+        
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -144,6 +143,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
             btnLabelValue.setTitle(String(value), forState: .Normal)
             btnLabelValueSub.setTitle(String(valueSub), forState: .Normal)
             maxValue = 60
+            sliderSub.setValue(Float(Float(valueSub)/100), animated: true)
             sliderSub.hidden = false
             btnLabelValueSub.hidden = false
             labelUnitMarkSub.hidden = false
@@ -207,7 +207,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         
 
         sliderMain.setValue(Float(Float(value) / 100), animated: true)
-        sliderSub.setValue(Float(Float(valueSub)/100), animated: true)
+        
     }
     
     @IBAction func sliderMainAction(sender: AnyObject) {
@@ -336,7 +336,19 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
     
     func textFieldDidEndEditing(textField: UITextField) {
         
-        if Int(textField.text!)! > self.maxValue{
+        if Int(textField.text!) == nil{
+            
+            self.presentViewController(alertNil, animated: true, completion: nil)
+            
+            if textField == textValue{
+                textValue.text = String(self.value)
+                sliderMain.setValue(Float(Float(self.value) / 100), animated: true)
+            }else{
+                textValueSub.text = String(self.valueSub)
+                sliderSub.setValue(Float(Float(self.valueSub) / 100), animated: true)
+            }
+            
+        }else if Int(textField.text!)! > self.maxValue{
             
             
             self.presentViewController(alertSize, animated: true, completion: nil)
