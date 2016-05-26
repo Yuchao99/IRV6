@@ -131,7 +131,7 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
     }
     
     func loadSetting(config: Configuration){
-        //two parts, first time open app, load default setting; loading from loal files
+        //two parts, first time open app, load default setting; loading from loal files,
         //now just use default setting
         btnLabelRampUp.setTitle(String(config.ruValue)+" Secs", forState: .Normal)
         btnLabelRampDown.setTitle(String(config.rdValue)+" Secs", forState: .Normal)
@@ -178,12 +178,13 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
     
     @IBAction func btnProfileSave(sender: AnyObject) {
         
-        //todo add logic for different situation of saving profiles: new one and update one
+        
         if self.profiles.count == self.profileIndex{
             self.profiles.append(self.settings)
             self.databaseSave(self.profiles, index: self.profileIndex)
             print("save new file success")
         }else{
+            self.profiles[self.profileIndex] = self.settings
             self.databaseSave(self.profiles, index: self.profileIndex)
             print("update profile success")
         }
@@ -308,7 +309,7 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
     func updateSettings(setting: Configuration) {
         self.settings = setting
         print("parent shows up")
-        
+        //dont' need this method to load all the view again
         //self.viewDidLoad()
         self.loadSetting(self.settings)
     }

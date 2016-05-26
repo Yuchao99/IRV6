@@ -112,6 +112,18 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
         return true
     }
     
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        let inverseSet = NSCharacterSet(charactersInString:"0123456789").invertedSet
+        
+        let components = string.componentsSeparatedByCharactersInSet(inverseSet)
+        
+        let filtered = components.joinWithSeparator("")
+        
+        return string == filtered
+        
+    }
+    
     func textFieldDidEndEditing(textField: UITextField) {
         //todo check overlapping, then add scrollable view and make view shift
         switch textField {
@@ -128,6 +140,8 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
         }
         
     }
+    
+    
     override func didMoveToParentViewController(parent: UIViewController?) {
         if parent == nil{
             print("back to parent")

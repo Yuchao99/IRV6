@@ -41,6 +41,11 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
     var maxValue: Int!
     var delegate: unwindValue!
     
+    let alertNumber = UIAlertController(title: nil, message: "Please Input Number Only", preferredStyle: UIAlertControllerStyle.Alert)
+    let alertSize = UIAlertController(title: nil, message: "Error, input number exceeds range", preferredStyle: .Alert)
+    
+//        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+//        self.presentViewController(alert, animated: true, completion: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +76,9 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         } catch let error as NSError {
             print(error)
         }
+        
+        //for error talorence
+        alertSize.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: nil))
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -199,6 +207,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         
 
         sliderMain.setValue(Float(Float(value) / 100), animated: true)
+        sliderSub.setValue(Float(Float(valueSub)/100), animated: true)
     }
     
     @IBAction func sliderMainAction(sender: AnyObject) {
@@ -313,42 +322,77 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         return true
     }
     
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        let inverseSet = NSCharacterSet(charactersInString:"0123456789").invertedSet
+        
+        let components = string.componentsSeparatedByCharactersInSet(inverseSet)
+        
+        let filtered = components.joinWithSeparator("")
+        
+        return string == filtered
+        
+    }
+    
     func textFieldDidEndEditing(textField: UITextField) {
         
-        if textField == textValue {
+        if Int(textField.text!)! > self.maxValue{
             
-            switch type {
-            case .rampUP:
-                settings.ruValue = Int(textValue.text!)
-                
-            case .rampDown:
-                settings.rdValue = Int(textValue.text!)
-                
-            case .maxDimming:
-                settings.maxDimValue = Int(textValue.text!)
-                
-            case .minDimming:
-                settings.minDimValue = Int(textValue.text!)
-                
-            case .sensitivity:
-                settings.sensValue = Int(textValue.text!)
-                
-            case .delayToOff:
-                settings.delMValue = Int(textValue.text!)
-                
-            case .lightSensor:
-                settings.maxLuxValue = Int(textValue.text!)
-                
-            default:
-                print("no value is changed")
+            
+            self.presentViewController(alertSize, animated: true, completion: nil)
+            
+            if textField == textValue{
+                textValue.text = String(self.value)
+                sliderMain.setValue(Float(Float(self.value) / 100), animated: true)
+            }else{
+                textValueSub.text = String(self.valueSub)
+                sliderSub.setValue(Float(Float(self.valueSub) / 100), animated: true)
             }
-            self.sliderMain.setValue(Float(Float(textValue.text!)! / 100), animated: true)
-
+            
+            
         }else{
-            settings.delSValue = Int(textValueSub.text!)
-            self.sliderSub.setValue(Float(Float(textValueSub.text!)! / 100), animated: true)
+            
+            
+            
+            if textField == textValue {
+                
+                switch type {
+                case .rampUP:
+                    settings.ruValue = Int(textValue.text!)
+                    
+                case .rampDown:
+                    settings.rdValue = Int(textValue.text!)
+                    
+                case .maxDimming:
+                    settings.maxDimValue = Int(textValue.text!)
+                    
+                case .minDimming:
+                    settings.minDimValue = Int(textValue.text!)
+                    
+                case .sensitivity:
+                    settings.sensValue = Int(textValue.text!)
+                    
+                case .delayToOff:
+                    settings.delMValue = Int(textValue.text!)
+                    
+                case .lightSensor:
+                    settings.maxLuxValue = Int(textValue.text!)
+                    
+                default:
+                    print("no value is changed")
+                }
+                self.sliderMain.setValue(Float(Float(textValue.text!)! / 100), animated: true)
+                
+            }else{
+                settings.delSValue = Int(textValueSub.text!)
+                self.sliderSub.setValue(Float(Float(textValueSub.text!)! / 100), animated: true)
+            }
         }
+        
+
     }
+    
+
     
     override func didMoveToParentViewController(parent: UIViewController?) {
         
