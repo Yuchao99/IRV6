@@ -459,10 +459,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrI-fS-2s1">
+                                <rect key="frame" x="20" y="130" width="211" height="30"/>
+                                <state key="normal" title="enable als"/>
+                                <connections>
+                                    <action selector="btnEnableAction:" destination="aOs-8t-6Ag" eventType="touchUpInside" id="fhq-u8-00b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="btnLabelEnable" destination="jrI-fS-2s1" id="h1K-6a-zIa"/>
                         <outlet property="btnLabelSend" destination="fp1-JF-4Eh" id="BSK-Su-yMf"/>
                         <outlet property="btnLabelValue" destination="2yY-wo-0pu" id="VtF-xz-sya"/>
                         <outlet property="btnLabelValueSub" destination="gze-Ox-h6D" id="hd8-RJ-bWH"/>

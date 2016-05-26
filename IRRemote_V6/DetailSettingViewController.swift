@@ -28,6 +28,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
     @IBOutlet weak var labelUnitMarkSub: UILabel!
     @IBOutlet weak var textValue: UITextField!
     @IBOutlet weak var textValueSub: UITextField!
+    @IBOutlet weak var btnLabelEnable: UIButton!
     
     
     
@@ -121,6 +122,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         labelUnitMarkSub.hidden = true
         textValue.hidden = true
         textValueSub.hidden = true
+        btnLabelEnable.hidden = true
         
         btnLabelValueSub.alpha = 0
         labelUnitMarkSub.alpha = 0
@@ -192,9 +194,16 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
             value = settings.maxLuxValue
             btnLabelValue.setTitle(String(value), forState: .Normal)
             maxValue = 100
-            labelUnitMark.text = "%"
+            labelUnitMark.text = "fc"
             textValue.text = String(value)
-            
+            btnLabelEnable.hidden = false
+            if settings.alsValue == true{
+                btnLabelEnable.setTitle("Light Sensing is Enabled", forState: .Normal)
+                btnLabelSend.enabled = true
+            }else{
+                btnLabelEnable.setTitle("Light Sensing is disabled", forState: .Normal)
+                btnLabelSend.enabled = false
+            }
         default:
             labelMainTitle.text = "Setting"
             labelSubtitle.text = "Select Value"
@@ -310,6 +319,12 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         self.operation.loadingBuffers(node, command: stream)
         node.play()
     }
+    
+    @IBAction func btnEnableAction(sender: AnyObject) {
+        settings.alsValue = !settings.alsValue
+        btnLabelSend.enabled = !btnLabelSend.enabled
+    }
+    
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         return true
