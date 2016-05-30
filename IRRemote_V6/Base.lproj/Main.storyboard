@@ -23,9 +23,21 @@
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5jj-lP-kxJ" userLabel="ContentsView">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="672"/>
                                         <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ug-M1-Hbr">
+                                                <rect key="frame" x="55" y="624" width="228" height="40"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="L3u-Tb-zXf"/>
+                                                </constraints>
+                                                <state key="normal" title="Save">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnProfileSave:" destination="BYZ-38-t0r" eventType="touchUpInside" id="be7-5L-UZN"/>
+                                                </connections>
+                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ramp Up" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7A-h4-C6I">
                                                 <rect key="frame" x="55" y="113" width="150" height="50"/>
-                                                <color key="backgroundColor" red="0.21746425597537655" green="1" blue="0.42149345520182391" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Jay-zB-QEu"/>
                                                 </constraints>
@@ -35,12 +47,14 @@
                                             </label>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DuT-sh-3EL">
                                                 <rect key="frame" x="452" y="113" width="100" height="50"/>
-                                                <color key="backgroundColor" red="1" green="0.24732991253476866" blue="0.95755900507235847" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" white="0.47999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="ITJ-fk-zvM"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <state key="normal" title="Ramp Up"/>
+                                                <state key="normal" title="Ramp Up">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="btnDetailSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bRi-gE-3Wl"/>
                                                 </connections>
@@ -56,11 +70,14 @@
                                             </label>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfS-KO-kfZ">
                                                 <rect key="frame" x="452" y="246" width="100" height="50"/>
+                                                <color key="backgroundColor" white="0.47999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="mUn-0h-3ih"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <state key="normal" title="Delay"/>
+                                                <state key="normal" title="Delay">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="btnDetailSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TKh-UD-vMq"/>
                                                 </connections>
@@ -74,18 +91,6 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="il5-2K-M4w">
-                                                <rect key="frame" x="452" y="178" width="100" height="50"/>
-                                                <color key="backgroundColor" red="1" green="0.42977664874446908" blue="0.13876278295262268" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="M3i-ug-znE"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <state key="normal" title="Ramp Down"/>
-                                                <connections>
-                                                    <action selector="btnDetailSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pyn-z8-oC2"/>
-                                                </connections>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Max Dimming" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WaM-7H-PSC">
                                                 <rect key="frame" x="55" y="372" width="150" height="50"/>
                                                 <constraints>
@@ -106,33 +111,43 @@
                                             </label>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfM-Ad-nG4">
                                                 <rect key="frame" x="452" y="372" width="100" height="50"/>
+                                                <color key="backgroundColor" white="0.47999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="tQl-VX-gXy"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <state key="normal" title="Max Dimming"/>
+                                                <state key="normal" title="Max Dimming">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="btnDetailSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SIe-VQ-gh0"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LnD-I6-Ron">
                                                 <rect key="frame" x="452" y="440" width="100" height="50"/>
+                                                <color key="backgroundColor" white="0.47999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Fhe-SH-GLP"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <state key="normal" title="Min Dimming"/>
+                                                <state key="normal" title="Min Dimming">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="btnDetailSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XuE-fU-fi5"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="7" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLN-Pl-iji">
                                                 <rect key="frame" x="452" y="508" width="100" height="50"/>
+                                                <color key="backgroundColor" white="0.47999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="fAq-Wd-ATY"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <state key="normal" title="ALS"/>
+                                                <state key="normal" title="ALS">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="btnDetailSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yhn-fO-dFK"/>
                                                 </connections>
@@ -149,9 +164,10 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PW8-hh-skc">
                                                 <rect key="frame" x="55" y="8" width="497" height="35"/>
-                                                <color key="backgroundColor" red="0.17565200816714888" green="0.76161142057580078" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                                <state key="normal" title="Profile name "/>
+                                                <state key="normal" title="Profile name ">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="btnProfilesAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VHI-vd-F3V"/>
                                                     <segue destination="CXU-6K-vHn" kind="popoverPresentation" identifier="profileSeletSegue" popoverAnchorView="PW8-hh-skc" id="hdS-Tg-ksT">
@@ -161,39 +177,48 @@
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DVO-md-iIk">
                                                 <rect key="frame" x="55" y="49" width="497" height="30"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ye4-gd-98Q">
                                                 <rect key="frame" x="55" y="575" width="497" height="40"/>
-                                                <color key="backgroundColor" red="0.38884323611890104" green="1" blue="0.91741978251507872" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="HEI-Va-F8Q"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal" title="send"/>
+                                                <state key="normal" title="send">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="sendBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rqL-TM-fYI"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4S6-gn-ozG">
                                                 <rect key="frame" x="304" y="624" width="248" height="40"/>
-                                                <color key="backgroundColor" red="1" green="0.45379170196118312" blue="0.31963636901301762" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="xpF-qI-s14"/>
                                                 </constraints>
-                                                <state key="normal" title="Delete"/>
+                                                <state key="normal" title="Delete">
+                                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="btnProfileDelete:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ctv-5t-7KQ"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="6" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MmY-rA-GSp">
                                                 <rect key="frame" x="442" y="311" width="110" height="50"/>
+                                                <color key="backgroundColor" white="0.47999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="1Ok-Gc-Udr"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <state key="normal" title="Sensitivity"/>
+                                                <state key="normal" title="Sensitivity">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="btnDetailSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mmn-zB-R2A"/>
                                                 </connections>
@@ -207,19 +232,22 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ug-M1-Hbr">
-                                                <rect key="frame" x="55" y="624" width="228" height="40"/>
-                                                <color key="backgroundColor" red="1" green="0.95839697946657765" blue="0.27596857018065601" alpha="1" colorSpace="calibratedRGB"/>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="il5-2K-M4w">
+                                                <rect key="frame" x="452" y="178" width="100" height="50"/>
+                                                <color key="backgroundColor" white="0.47999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="L3u-Tb-zXf"/>
+                                                    <constraint firstAttribute="height" constant="50" id="M3i-ug-znE"/>
                                                 </constraints>
-                                                <state key="normal" title="Save"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <state key="normal" title="Ramp Down">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
                                                 <connections>
-                                                    <action selector="btnProfileSave:" destination="BYZ-38-t0r" eventType="touchUpInside" id="be7-5L-UZN"/>
+                                                    <action selector="btnDetailSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pyn-z8-oC2"/>
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.81478987068965514" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="MmY-rA-GSp" secondAttribute="trailing" constant="20" id="18L-75-QLa"/>
                                             <constraint firstItem="B7A-h4-C6I" firstAttribute="width" secondItem="DuT-sh-3EL" secondAttribute="width" id="2O1-66-YEi"/>
@@ -304,6 +332,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="IR Remote" id="zLO-Ab-z5X">
                         <barButtonItem key="rightBarButtonItem" title="Menu" id="DJA-rW-eBe">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="btnMenuAction:" destination="BYZ-38-t0r" id="V73-ci-vgi"/>
                                 <segue destination="gAX-5C-pUm" kind="popoverPresentation" identifier="menuItemsSegue" popoverAnchorBarButtonItem="DJA-rW-eBe" id="sGA-Sm-qbA">
@@ -644,6 +673,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JZb-bL-NKb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.92515564169687203" green="0.0" blue="0.0086610809565862475" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
