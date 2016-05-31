@@ -630,6 +630,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="ScrollView" destination="lnv-I6-BdL" id="PVi-X2-fO3"/>
                         <outlet property="textDiff" destination="cXw-pT-msf" id="VDk-Cb-RRy"/>
                         <outlet property="textKeyMod" destination="6A7-Zt-u4H" id="6yn-RW-Etn"/>
                         <outlet property="textMaxSlope" destination="1wg-cY-vJI" id="QD0-yq-WbU"/>
@@ -805,6 +806,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="ScrollView" destination="9Ny-zG-MwE" id="jxb-hu-Mga"/>
                         <outlet property="btnLabelEnable" destination="jrI-fS-2s1" id="h1K-6a-zIa"/>
                         <outlet property="btnLabelSend" destination="fp1-JF-4Eh" id="BSK-Su-yMf"/>
                         <outlet property="btnLabelValue" destination="2yY-wo-0pu" id="VtF-xz-sya"/>

@@ -17,6 +17,9 @@ protocol unwindValue {
 class DetailSettingViewController: UIViewController, UINavigationControllerDelegate, UITextFieldDelegate {
     
     //declare all the UI components
+    
+    @IBOutlet weak var ScrollView: UIScrollView!
+    
     @IBOutlet weak var labelMainTitle: UILabel!
     @IBOutlet weak var labelSubtitle: UILabel!
     @IBOutlet weak var sliderMain: UISlider!
@@ -203,7 +206,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
                 btnLabelEnable.setTitle("Light Sensing is Enabled", forState: .Normal)
                 btnLabelSend.enabled = true
             }else{
-                btnLabelEnable.setTitle("Light Sensing is disabled", forState: .Normal)
+                btnLabelEnable.setTitle("Light Sensing is Disabled", forState: .Normal)
                 btnLabelSend.enabled = false
             }
         default:
@@ -325,6 +328,12 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
     @IBAction func btnEnableAction(sender: AnyObject) {
         settings.alsValue = !settings.alsValue
         btnLabelSend.enabled = !btnLabelSend.enabled
+        
+        if settings.alsValue == true {
+            btnLabelEnable.setTitle("Light Sensing is Enabled", forState: .Normal)
+        }else{
+            btnLabelEnable.setTitle("Light Sensing is Disabled", forState: .Normal)
+        }
     }
     
     
@@ -332,7 +341,10 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         return true
     }
     
-    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        
+        ScrollView.setContentOffset(CGPointMake(0, 250), animated: true)
+    }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
         textField.resignFirstResponder()
@@ -418,6 +430,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
             }
         }
         
+        ScrollView.setContentOffset(CGPointMake(0, 0), animated: true)
 
     }
     

@@ -13,6 +13,8 @@ protocol unwindAdValue {
     func updateAdValue(setting: Configuration)
 }
 class AdvancedSettingViewController: UIViewController,UINavigationControllerDelegate,UITextFieldDelegate {
+    
+    @IBOutlet weak var ScrollView: UIScrollView!
 
     @IBOutlet weak var textDiff: UITextField!
     @IBOutlet weak var textMinSlope: UITextField!
@@ -111,7 +113,10 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
         return true
     }
     
-    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        
+        ScrollView.setContentOffset(CGPointMake(0, 250), animated: true)
+    }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -181,7 +186,7 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
             }
         }
 
-        
+        ScrollView.setContentOffset(CGPointMake(0, 0), animated: true)
     }
     
     

@@ -131,18 +131,26 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
     }
     
     func loadSetting(config: Configuration){
-        //two parts, first time open app, load default setting; loading from loal files,
-        //now just use default setting
+        
         btnLabelRampUp.setTitle(String(config.ruValue)+" Secs", forState: .Normal)
         btnLabelRampDown.setTitle(String(config.rdValue)+" Secs", forState: .Normal)
-        //call for a logic to handle the situation that M is 0
-        btnLabelDelayToOff.setTitle(String(config.delMValue)+" M "+String(config.delSValue)+" S", forState: .Normal)
+
+        if config.delMValue == 0{
+            btnLabelDelayToOff.setTitle(String(config.delSValue)+" S", forState: .Normal)
+        }else{
+            btnLabelDelayToOff.setTitle(String(config.delMValue)+" M "+String(config.delSValue)+" S", forState: .Normal)
+        }
+        
         
         btnLabelMaxDimming.setTitle(String(config.maxDimValue)+" %", forState: .Normal)
         btnLabelMinDimming.setTitle(String(config.minDimValue)+" %", forState: .Normal)
         btnLabelSensitivity.setTitle(String(config.sensValue)+" %", forState: .Normal)
-        //todo @yuchao make it enable or disable
-        btnLabelALS.setTitle(String(config.alsValue), forState: .Normal)
+        
+        if config.alsValue == true {
+            btnLabelALS.setTitle(String(config.maxLuxValue), forState: .Normal)
+        }else{
+            btnLabelALS.setTitle("DISABLED", forState: .Normal)
+        }
         
         btnLabelProfile.setTitle((config.name), forState: .Normal)
         textProfile.text = config.name
