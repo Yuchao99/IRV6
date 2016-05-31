@@ -88,13 +88,14 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
         
         switch sender!.tag {
         case 1:
-            stream = operation.processDetailCommand(Configuration.settingTypes.diff.value, value: Int(textDiff.text!)!)
+            stream = operation.processAdCommand(Configuration.settingTypes.diff.value, value: Int(textDiff.text!)!)
+
         case 2:
-            stream = operation.processDetailCommand(Configuration.settingTypes.minSlope.value, value: Int(textMinSlope.text!)!)
+            stream = operation.processAdCommand(Configuration.settingTypes.minSlope.value, value: Int(textMinSlope.text!)!)
         case 3:
-            stream = operation.processDetailCommand(Configuration.settingTypes.maxSlope.value, value: Int(textMaxSlope.text!)!)
+            stream = operation.processAdCommand(Configuration.settingTypes.maxSlope.value, value: Int(textMaxSlope.text!)!)
         case 4:
-            stream = operation.processDetailCommand(Configuration.settingTypes.keyMod.value, value: Int(textKeyMod.text!)!)
+            stream = operation.processAdCommand(Configuration.settingTypes.keyMod.value, value: Int(textKeyMod.text!)!)
         default:
             stream = ""
             

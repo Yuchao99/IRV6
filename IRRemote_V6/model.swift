@@ -28,6 +28,24 @@ class Model {
         return str
     }
     
+    func adDecimalToReversedBinary(x: Int) -> String{
+        var str = String(x, raix: 2)
+        
+        while str.characters.count < 16 {
+            str = "0" + str
+        }
+        
+        return str
+    }
+    
+    func adBinaryFirstPart(x: String) -> String{
+        return x[x.startIndex..<x.startIndex.advancedBy(8)]
+    }
+    
+    func adBinaryLastPart(x: String) -> String{
+        return x[x.startIndex.advancedBy(8)..<x.endIndex]
+    }
+    
     //process settings queue
     func processQueue(settings: Configuration) -> [String]{
         
@@ -62,6 +80,12 @@ class Model {
         
         return commandStr
         
+    }
+    
+    func processAdCommand(command: Int, value: Int) -> String{
+        let commandStr = decimalToReversedBinary(command) + adBinaryFirstPart(decimalToReversedBinary(value) + decimalToReversedBinary(command) + adBinaryLastPart(decimalToReversedBinary(value)))
+        
+        return commandStr
     }
     
     func loadingBuffers(node: Protocal, command: String){
