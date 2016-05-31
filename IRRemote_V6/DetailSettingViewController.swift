@@ -115,6 +115,26 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         // btnLabelValue.frame.origin = CGPoint(x:250, y:250)
     }
     
+    override func viewDidLayoutSubviews() {
+        let border = CALayer()
+        let borderSub = CALayer()
+        
+        let width = CGFloat(2.0)
+        
+        border.borderColor = UIColor.redColor().CGColor
+        border.frame = CGRect(x: 0, y: textValue.frame.size.height - width, width:  textValue.frame.size.width, height: textValue.frame.size.height)
+        border.borderWidth = width
+        
+        borderSub.borderColor = UIColor.redColor().CGColor
+        borderSub.frame = CGRect(x: 0, y: textValueSub.frame.size.height - width, width:  textValueSub.frame.size.width, height: textValueSub.frame.size.height)
+        borderSub.borderWidth = width
+        
+        textValue.layer.addSublayer(border)
+        textValue.layer.masksToBounds = true
+        
+        textValueSub.layer.addSublayer(borderSub)
+        textValueSub.layer.masksToBounds = true
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -344,6 +364,9 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
     func textFieldDidBeginEditing(textField: UITextField) {
         
         ScrollView.setContentOffset(CGPointMake(0, 250), animated: true)
+        textField.becomeFirstResponder()
+        
+        textField.selectedTextRange = textField.textRangeFromPosition(textField.beginningOfDocument, toPosition: textField.endOfDocument)
     }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         

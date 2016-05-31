@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IRRemote_V6/AdvancedSettingViewController.swift"
-            timestampString = "486362303.405297"
+            timestampString = "486401833.691927"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "btnSendAction(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IRRemote_V6/AdvancedSettingViewController.swift"
-            timestampString = "486362303.405297"
+            timestampString = "486401833.691927"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "btnSendAction(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IRRemote_V6/AdvancedSettingViewController.swift"
-            timestampString = "486362303.405297"
+            timestampString = "486401833.691927"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "btnSendAction(_:)"
             landmarkType = "5">
          </BreakpointContent>

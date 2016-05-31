@@ -66,6 +66,44 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
         alertNil.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: nil))
     }
 
+    override func viewDidLayoutSubviews() {
+        let border = CALayer()
+        let border2 = CALayer()
+        let border3 = CALayer()
+        let border4 = CALayer()
+        let width = CGFloat(2.0)
+        
+        
+        border.borderColor = UIColor.redColor().CGColor
+        border.frame = CGRect(x: 0, y: textDiff.frame.size.height - width, width:  textDiff.frame.size.width, height: textDiff.frame.size.height)
+        border.borderWidth = width
+        
+        border2.borderColor = UIColor.redColor().CGColor
+        border2.frame = CGRect(x: 0, y: textDiff.frame.size.height - width, width:  textDiff.frame.size.width, height: textDiff.frame.size.height)
+        border2.borderWidth = width
+        
+        border3.borderColor = UIColor.redColor().CGColor
+        border3.frame = CGRect(x: 0, y: textDiff.frame.size.height - width, width:  textDiff.frame.size.width, height: textDiff.frame.size.height)
+        border3.borderWidth = width
+        
+        border4.borderColor = UIColor.redColor().CGColor
+        border4.frame = CGRect(x: 0, y: textDiff.frame.size.height - width, width:  textDiff.frame.size.width, height: textDiff.frame.size.height)
+        border4.borderWidth = width
+        
+        
+        textDiff.layer.addSublayer(border)
+        textDiff.layer.masksToBounds = true
+        
+        textMinSlope.layer.addSublayer(border2)
+        textMinSlope.layer.masksToBounds = true
+        
+        textMaxSlope.layer.addSublayer(border3)
+        textMaxSlope.layer.masksToBounds = true
+        
+        textKeyMod.layer.addSublayer(border4)
+        textKeyMod.layer.masksToBounds = true
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -122,6 +160,10 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
     func textFieldDidBeginEditing(textField: UITextField) {
         
         ScrollView.setContentOffset(CGPointMake(0, 250), animated: true)
+        textField.becomeFirstResponder()
+        
+        textField.selectedTextRange = textField.textRangeFromPosition(textField.beginningOfDocument, toPosition: textField.endOfDocument)
+        
     }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
