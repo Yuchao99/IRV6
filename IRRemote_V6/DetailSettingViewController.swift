@@ -340,9 +340,13 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
             print("error to create signal")
             stream = ""
         }
-        
+        self.sendingStatus(false)
         self.operation.loadingBuffers(node, command: stream)
         node.play()
+        self.operation.delay(400){
+            self.sendingStatus(true)
+        }
+        
     }
     
     @IBAction func btnEnableAction(sender: AnyObject) {
@@ -367,6 +371,8 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         textField.becomeFirstResponder()
         
         textField.selectedTextRange = textField.textRangeFromPosition(textField.beginningOfDocument, toPosition: textField.endOfDocument)
+        
+        navigationController?.navigationBar.userInteractionEnabled = false
     }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
@@ -382,7 +388,9 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         
         let filtered = components.joinWithSeparator("")
         
-        return string == filtered
+        let newLength = textField.text!.characters.count + string.characters.count - range.length
+        
+        return string == filtered && newLength <= 3
         
     }
     
@@ -391,14 +399,17 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         if Int(textField.text!) == nil{
             
             self.presentViewController(alertNil, animated: true, completion: nil)
-            
+            print("strep 1")
             if textField == textValue{
                 textValue.text = String(self.value)
                 sliderMain.setValue(Float(Float(self.value) / 100), animated: true)
+                 print("strep 2")
             }else{
                 textValueSub.text = String(self.valueSub)
                 sliderSub.setValue(Float(Float(self.valueSub) / 100), animated: true)
+                 print("strep 3")
             }
+             print("strep 4")
             
         }else if Int(textField.text!)! > self.maxValue{
             
@@ -454,10 +465,13 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         }
         
         ScrollView.setContentOffset(CGPointMake(0, 0), animated: true)
+        navigationController?.navigationBar.userInteractionEnabled = true
 
     }
     
-
+    func sendingStatus(enable: Bool){
+        self.btnLabelSend.enabled = enable;
+    }
     
     override func didMoveToParentViewController(parent: UIViewController?) {
         
@@ -466,10 +480,8 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
             self.delegate.updateSettings(self.settings)
             
         }
-
-        
     }
     
-
+    
 
 }

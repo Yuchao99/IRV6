@@ -183,13 +183,13 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ye4-gd-98Q">
-                                                <rect key="frame" x="55" y="575" width="497" height="40"/>
+                                                <rect key="frame" x="55" y="573" width="497" height="44"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="HEI-Va-F8Q"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal" title="send">
+                                                <state key="normal" title="SEND ALL">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
@@ -341,7 +341,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="IR Remote" id="zLO-Ab-z5X">
-                        <barButtonItem key="rightBarButtonItem" title="Menu" id="DJA-rW-eBe">
+                        <barButtonItem key="rightBarButtonItem" image="menu bar" id="DJA-rW-eBe">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="btnMenuAction:" destination="BYZ-38-t0r" id="V73-ci-vgi"/>
@@ -420,32 +420,36 @@
                         <viewControllerLayoutGuide type="bottom" id="clg-27-71b"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cqt-qq-ToL">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Zv-eo-4pm">
-                                <rect key="frame" x="0.0" y="8" width="300" height="67"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Advanced Settings"/>
-                                <connections>
-                                    <action selector="btnAdSettingsAction:" destination="gAX-5C-pUm" eventType="touchUpInside" id="tXK-tG-Pln"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jli-o1-dj9">
-                                <rect key="frame" x="4" y="83" width="292" height="67"/>
+                                <rect key="frame" x="4" y="83" width="250" height="67"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="About"/>
+                                <state key="normal" title="About">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="btnAboutAction:" destination="gAX-5C-pUm" eventType="touchUpInside" id="2Fc-yZ-GMu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Zv-eo-4pm">
+                                <rect key="frame" x="0.0" y="8" width="250" height="67"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Advanced Settings">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnAdSettingsAction:" destination="gAX-5C-pUm" eventType="touchUpInside" id="tXK-tG-Pln"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="300" height="150"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="250" height="150"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="300" height="150"/>
+                    <size key="freeformSize" width="250" height="150"/>
                     <connections>
                         <outlet property="btnLabelAdSettings" destination="1Zv-eo-4pm" id="HXM-Hc-yaI"/>
                     </connections>
@@ -691,6 +695,11 @@
                     </view>
                     <connections>
                         <outlet property="ScrollView" destination="lnv-I6-BdL" id="PVi-X2-fO3"/>
+                        <outlet property="btnLabelDiff" destination="Tzs-PE-rqJ" id="9qY-0R-obE"/>
+                        <outlet property="btnLabelKeyMod" destination="tEK-TS-cfd" id="7RL-Bx-U4D"/>
+                        <outlet property="btnLabelMaxSlope" destination="8iE-AI-EhH" id="WXu-8f-7mA"/>
+                        <outlet property="btnLabelMinSlope" destination="S4g-x5-T0g" id="exG-aS-eCw"/>
+                        <outlet property="btnLabelSendAll" destination="omL-xA-Rxs" id="Vns-gZ-X6I"/>
                         <outlet property="textDiff" destination="cXw-pT-msf" id="VDk-Cb-RRy"/>
                         <outlet property="textKeyMod" destination="6A7-Zt-u4H" id="6yn-RW-Etn"/>
                         <outlet property="textMaxSlope" destination="1wg-cY-vJI" id="QD0-yq-WbU"/>
@@ -754,7 +763,7 @@
                                                 </connections>
                                             </slider>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gze-Ox-h6D">
-                                                <rect key="frame" x="431" y="293" width="100" height="100"/>
+                                                <rect key="frame" x="398" y="293" width="100" height="100"/>
                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="80"/>
                                                 <state key="normal" title="subvalue">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -763,16 +772,10 @@
                                                     <action selector="btnValueSub:" destination="aOs-8t-6Ag" eventType="touchUpInside" id="SXL-QW-hh4"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="sub unit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Byd-ah-Nsj">
-                                                <rect key="frame" x="431" y="401" width="100" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bPx-om-VyS">
                                                 <rect key="frame" x="250" y="293" width="100" height="100"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="80"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="40"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrI-fS-2s1">
@@ -800,9 +803,9 @@
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OPH-sj-Sdf">
-                                                <rect key="frame" x="431" y="293" width="100" height="100"/>
+                                                <rect key="frame" x="398" y="293" width="100" height="100"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="80"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="40"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fp1-JF-4Eh">
@@ -830,6 +833,12 @@
                                                     <constraint firstAttribute="height" constant="2" id="sGY-Ud-JTX"/>
                                                 </constraints>
                                             </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="sub unit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Byd-ah-Nsj">
+                                                <rect key="frame" x="398" y="401" width="100" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -837,8 +846,8 @@
                                             <constraint firstAttribute="trailing" secondItem="YyV-f2-0Yz" secondAttribute="trailing" constant="20" id="1oR-fR-g2h"/>
                                             <constraint firstItem="bPx-om-VyS" firstAttribute="centerX" secondItem="uIc-X0-Eax" secondAttribute="centerX" id="2jG-Be-Y3R"/>
                                             <constraint firstItem="OPH-sj-Sdf" firstAttribute="leading" secondItem="bPx-om-VyS" secondAttribute="trailing" id="3Bm-fw-OZe"/>
+                                            <constraint firstItem="7EZ-91-MJY" firstAttribute="width" secondItem="2yY-wo-0pu" secondAttribute="width" id="65J-5A-Lwk"/>
                                             <constraint firstItem="xfw-df-03i" firstAttribute="centerX" secondItem="uIc-X0-Eax" secondAttribute="centerX" id="6jn-2Y-VP4"/>
-                                            <constraint firstItem="7EZ-91-MJY" firstAttribute="width" secondItem="2yY-wo-0pu" secondAttribute="width" id="7NR-Po-Fd1"/>
                                             <constraint firstItem="vm7-An-d7I" firstAttribute="leading" secondItem="uIc-X0-Eax" secondAttribute="leading" constant="35" id="82Y-L8-E7t"/>
                                             <constraint firstItem="jrI-fS-2s1" firstAttribute="leading" secondItem="uIc-X0-Eax" secondAttribute="leading" constant="50" id="A8P-WM-xpF"/>
                                             <constraint firstAttribute="trailing" secondItem="LsU-VS-DG7" secondAttribute="trailing" constant="20" id="F2H-ea-XCI"/>
@@ -929,4 +938,7 @@
             <point key="canvasLocation" x="375" y="436"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu bar" width="22" height="22"/>
+    </resources>
 </document>

@@ -96,4 +96,10 @@ class Model {
         }
 
     }
+    
+    func delay(time: Double, closure: () -> () ){
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(time * Double(NSEC_PER_MSEC))),
+                       dispatch_get_main_queue(),
+                       closure)
+    }
 }

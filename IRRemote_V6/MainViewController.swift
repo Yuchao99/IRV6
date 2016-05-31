@@ -221,6 +221,9 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
             self.operations.loadingBuffers(node, command: setting)
             node.volume = 1
             node.play()
+            self.operations.delay(400){
+                
+            }
         }
     }
     

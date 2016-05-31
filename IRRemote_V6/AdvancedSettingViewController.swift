@@ -20,6 +20,12 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
     @IBOutlet weak var textMinSlope: UITextField!
     @IBOutlet weak var textMaxSlope: UITextField!
     @IBOutlet weak var textKeyMod: UITextField!
+
+    @IBOutlet weak var btnLabelDiff: UIButton!
+    @IBOutlet weak var btnLabelMinSlope: UIButton!
+    @IBOutlet weak var btnLabelMaxSlope: UIButton!
+    @IBOutlet weak var btnLabelKeyMod: UIButton!
+    @IBOutlet weak var btnLabelSendAll: UIButton!
     
     var settings = Configuration()
     var type =   Configuration.settingTypes()
@@ -139,17 +145,31 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
         }
         
         self.operation.loadingBuffers(node, command: stream)
+        self.sendingStatus(false)
         node.play()
+        self.operation.delay(400) { 
+            self.sendingStatus(true)
+        }
     }
     
     @IBAction func btnSendAllAdSettings(sender: AnyObject) {
         
-        var stream: String!
+        var stream = [String]()
         
-        stream = operation.processAdCommand(Configuration.settingTypes.diff.value, value: Int(textDiff.text!)!) + operation.processAdCommand(Configuration.settingTypes.minSlope.value, value: Int(textMinSlope.text!)!) + operation.processAdCommand(Configuration.settingTypes.maxSlope.value, value: Int(textMaxSlope.text!)!) + operation.processAdCommand(Configuration.settingTypes.keyMod.value, value: Int(textKeyMod.text!)!)
+        stream.append(operation.processAdCommand(Configuration.settingTypes.diff.value, value: Int(textDiff.text!)!))
+        stream.append(operation.processAdCommand(Configuration.settingTypes.minSlope.value, value: Int(textMinSlope.text!)!))
+        stream.append(operation.processAdCommand(Configuration.settingTypes.maxSlope.value, value: Int(textMaxSlope.text!)!))
+        stream.append(operation.processAdCommand(Configuration.settingTypes.keyMod.value, value: Int(textKeyMod.text!)!))
         
-        self.operation.loadingBuffers(node, command: stream)
-        node.play()
+        for i in stream{
+            self.operation.loadingBuffers(node, command: i)
+            self.sendingStatus(false)
+            node.play()
+            self.operation.delay(400, closure: { 
+                self.sendingStatus(true)
+            })
+        }
+        
     }
     
     
@@ -163,6 +183,8 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
         textField.becomeFirstResponder()
         
         textField.selectedTextRange = textField.textRangeFromPosition(textField.beginningOfDocument, toPosition: textField.endOfDocument)
+        
+        navigationController?.navigationBar.userInteractionEnabled = false
         
     }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -178,7 +200,9 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
         
         let filtered = components.joinWithSeparator("")
         
-        return string == filtered
+        let newLength = textField.text!.characters.count + string.characters.count - range.length
+        
+        return string == filtered && newLength <= 5
         
     }
     
@@ -235,8 +259,16 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
         }
 
         ScrollView.setContentOffset(CGPointMake(0, 0), animated: true)
+        navigationController?.navigationBar.userInteractionEnabled = true
     }
     
+    func sendingStatus(enable: Bool){
+        self.btnLabelDiff.enabled = enable
+        self.btnLabelKeyMod.enabled = enable
+        self.btnLabelMaxSlope.enabled = enable
+        self.btnLabelMinSlope.enabled = enable
+        self.btnLabelSendAll.enabled = enable
+    }
     
     override func didMoveToParentViewController(parent: UIViewController?) {
         if parent == nil{
