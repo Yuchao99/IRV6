@@ -89,7 +89,6 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
         switch sender!.tag {
         case 1:
             stream = operation.processAdCommand(Configuration.settingTypes.diff.value, value: Int(textDiff.text!)!)
-
         case 2:
             stream = operation.processAdCommand(Configuration.settingTypes.minSlope.value, value: Int(textMinSlope.text!)!)
         case 3:
@@ -107,6 +106,12 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
     
     @IBAction func btnSendAllAdSettings(sender: AnyObject) {
         
+        var stream: String!
+        
+        stream = operation.processAdCommand(Configuration.settingTypes.diff.value, value: Int(textDiff.text!)!) + operation.processAdCommand(Configuration.settingTypes.minSlope.value, value: Int(textMinSlope.text!)!) + operation.processAdCommand(Configuration.settingTypes.maxSlope.value, value: Int(textMaxSlope.text!)!) + operation.processAdCommand(Configuration.settingTypes.keyMod.value, value: Int(textKeyMod.text!)!)
+        
+        self.operation.loadingBuffers(node, command: stream)
+        node.play()
     }
     
     

@@ -169,12 +169,8 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
     
     @IBAction func sendBtn(sender: UIButton) {
         
-        self.operations.loadingBuffers(node, command: self.operations.test())
-        //to send all the commands
-        //self.operations.excuteQueue(node, settings: self.operations.processQueue(self.settings))
-        //todo @yuchao set maximum volume of output audio
-        node.volume = 1
-        node.play()
+        self.excuteQueue(node, settings: self.operations.processQueue(self.settings))
+        
     }
     
     @IBAction func btnMenuAction(sender: AnyObject) {
@@ -216,6 +212,16 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
         
         self.databaseSave(self.profiles, index: self.profileIndex)
         self.editProfileMode(false)
+    }
+    
+    //excute setting queue
+    func excuteQueue(node: Protocal, settings: [String]){
+        
+        for setting: String in settings{
+            self.operations.loadingBuffers(node, command: setting)
+            node.volume = 1
+            node.play()
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -49,30 +49,28 @@ class Model {
     //process settings queue
     func processQueue(settings: Configuration) -> [String]{
         
-        var results = [String]()
-        results.append(decimalToReversedBinary(settings.ruValue))
-        results.append(decimalToReversedBinary(settings.rdValue))
-        //todo logic for delay only
-        //results.append(decimalToReversedBinary(settings.delValue))
-        results.append(decimalToReversedBinary(settings.maxDimValue))
-        results.append(decimalToReversedBinary(settings.minDimValue))
-        results.append(decimalToReversedBinary(settings.sensValue))
-//        results.append(decimalToReversedBinary(settings.lensValue))
-        //todo @yuchao logiv for lightsensor only
-//        results.append(decimalToReversedBinary(settings.alsValue))
-//        results.append(decimalToReversedBinary(settings.maxLuxValue))
-//        results.append(decimalToReversedBinary(settings.minLuxValue))
+        var queue = [String]()
         
-        return results
+        queue.append(processDetailCommand(Configuration.settingTypes.rampUP.value, value: settings.ruValue))
+        queue.append(processDetailCommand(Configuration.settingTypes.rampDown.value, value: settings.rdValue))
+        
+        if settings.delMValue >= 4{
+            queue.append(processDetailCommand(Configuration.settingTypes.delayToOffM.value, value: settings.delMValue))
+        }else{
+            queue.append(processDetailCommand(Configuration.settingTypes.delayToOffS.value, value: settings.delMValue * 60 + settings.delSValue))
+        }
+        
+        queue.append(processDetailCommand(Configuration.settingTypes.sensitivity.value, value: settings.sensValue))
+        
+        if settings.alsValue == true{
+            queue.append(processDetailCommand(Configuration.settingTypes.maxLuxValue.value, value: settings.maxLuxValue))
+        }
+        
+        return queue
+        
     }
     
-    //excute setting queue
-    func excuteQueue(node: Protocal, settings: [String]){
-        
-        for setting: String in settings{
-            loadingBuffers(node, command: setting)
-        }
-    }
+
     
     func processDetailCommand(command: Int, value: Int) -> String {
         
