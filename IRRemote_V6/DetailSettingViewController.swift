@@ -85,7 +85,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         //todo @yuchao make Subs also center at begin and add animation to right
         if self.type == .delayToOff {
             
-            let xPosition = btnLabelValue.frame.origin.x - 50
+            let xPosition = btnLabelValue.frame.origin.x - 100
             let yBtnValue = btnLabelValue.frame.origin.y
             let yLabelMark = labelUnitMark.frame.origin.y
             
@@ -98,13 +98,15 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
             UIView.animateWithDuration(1.0, animations: {
                 self.btnLabelValue.frame = CGRectMake(xPosition, yBtnValue, widthBtnValue, heightBtnValue)
                 self.labelUnitMark.frame = CGRectMake(xPosition, yLabelMark, widthLabelMark, heightLabelMark)
+                self.textValue.frame = CGRectMake(xPosition, yBtnValue, widthBtnValue, heightBtnValue)
                 self.btnLabelValueSub.alpha = 1.0
                 self.labelUnitMarkSub.alpha = 1.0
+                
             })
             
-            self.btnLabelValue.transform = CGAffineTransformTranslate(self.btnLabelValue.transform,  -50.0, 0.0)
-            self.labelUnitMark.transform = CGAffineTransformTranslate(self.labelUnitMark.transform, -50.0, 0.0)
-            
+            self.btnLabelValue.transform = CGAffineTransformTranslate(self.btnLabelValue.transform,  -100.0, 0.0)
+            self.labelUnitMark.transform = CGAffineTransformTranslate(self.labelUnitMark.transform, -100.0, 0.0)
+            self.textValue.transform = CGAffineTransformTranslate(self.textValue.transform, -100.0, 0.0)
         }
         //hints: absolut position
         // btnLabelValue.frame.origin = CGPoint(x:250, y:250)
