@@ -23,6 +23,7 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
     var engine: AVAudioEngine!
     var node: Protocal!
     
+    let alertHeadphone = UIAlertController(title: nil, message: "Please connect RAB fixture to use the app", preferredStyle: .Alert)
 
     //declare all the UI components
     @IBOutlet weak var labelRampUp: UILabel!
@@ -93,8 +94,23 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
             print(error)
         }
         
+        
+        alertHeadphone.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
     }
 
+    override func viewDidAppear(animated: Bool) {
+        let route = AVAudioSession.sharedInstance().currentRoute
+        
+        for port in route.outputs {
+            if port.portType == AVAudioSessionPortHeadphones {
+                print("there is headphone")
+            }else{
+                print("ther e is no headphone")
+                
+                self.presentViewController(alertHeadphone, animated: true, completion: nil)
+            }
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -138,7 +154,7 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
         btnLabelRampDown.setTitle(String(config.rdValue)+" Secs", forState: .Normal)
 
         if config.delMValue == 0{
-            btnLabelDelayToOff.setTitle(String(config.delSValue)+" S", forState: .Normal)
+            btnLabelDelayToOff.setTitle(String(config.delSValue)+" Secs", forState: .Normal)
         }else{
             btnLabelDelayToOff.setTitle(String(config.delMValue)+" M "+String(config.delSValue)+" S", forState: .Normal)
         }

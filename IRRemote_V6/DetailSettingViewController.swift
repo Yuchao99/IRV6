@@ -47,6 +47,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
     
     let alertSize = UIAlertController(title: nil, message: "Error, input number exceeds range", preferredStyle: .Alert)
     let alertNil = UIAlertController(title: nil, message: "Error, please input a valid number", preferredStyle: .Alert)
+    let alertHeadphone = UIAlertController(title: nil, message: "Please connect RAB fixture to use the app", preferredStyle: .Alert)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,8 +80,9 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         }
         
         //for error talorence
-        alertSize.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: nil))
-        alertNil.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: nil))
+        alertSize.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+        alertNil.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+        alertHeadphone.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
         
     }
 
@@ -115,6 +117,19 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         // btnLabelValue.frame.origin = CGPoint(x:250, y:250)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        let route = AVAudioSession.sharedInstance().currentRoute
+        
+        for port in route.outputs {
+            if port.portType == AVAudioSessionPortHeadphones {
+                print("there is headphone")
+            }else{
+                print("ther e is no headphone")
+                
+                self.presentViewController(alertHeadphone, animated: true, completion: nil)
+            }
+        }
+    }
     override func viewDidLayoutSubviews() {
         let border = CALayer()
         let borderSub = CALayer()

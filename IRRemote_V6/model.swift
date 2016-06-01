@@ -106,4 +106,5 @@ class Model {
                        dispatch_get_main_queue(),
                        closure)
     }
+    
 }
