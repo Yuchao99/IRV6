@@ -10,14 +10,8 @@ import Foundation
 
 class Model {
     
-    func test() -> String{
-        //this is a test for how to manipulate the buffers
-        //send 00000111
-        let testy = 8
-        let testy2 = 5
-        return decimalToReversedBinary(testy2) + decimalToReversedBinary(testy)
-    }
-    //make it contains 16 digits
+
+    //make it contains 8 digits
     func decimalToReversedBinary(x: Int) -> String{
         var str = String(x, radix: 2)
         
@@ -27,7 +21,7 @@ class Model {
         
         return str
     }
-    
+    //make it contains 16 digits
     func adDecimalToReversedBinary(x: Int) -> String{
         var str = String(x, raix: 2)
         
@@ -80,12 +74,22 @@ class Model {
         
     }
     
+    //this is for the method without delay settings
     func processAdCommand(command: Int, value: Int) -> String{
-        let commandStr = decimalToReversedBinary(command) + adBinaryFirstPart(decimalToReversedBinary(value) ) 
+        let commandStr = decimalToReversedBinary(command) + adBinaryFirstPart(adDecimalToReversedBinary(value)) + adBinaryLastPart(adDecimalToReversedBinary(value))
         
         return commandStr
     }
     
+    func processAdCommandFirst(command: Int, value: Int) -> String{
+        let commandStr = decimalToReversedBinary(command) + adBinaryFirstPart(adDecimalToReversedBinary(value))
+        return commandStr
+    }
+    
+    func processAdCommandLast(value: Int) -> String {
+        let commandStr =  adBinaryLastPart(adDecimalToReversedBinary(value))
+        return commandStr
+    }
     func loadingBuffers(node: Protocal, command: String){
         for logic in command.characters{
             if logic == "0"{

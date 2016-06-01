@@ -128,6 +128,7 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
         
         view.endEditing(true)
         
+        //this part is for without delay settings
         var stream: String!
         
         switch sender!.tag {
@@ -151,10 +152,46 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
             self.sendingStatus(true)
         }
         
+//        //this part is for delay settings
+//        
+//        var streamFirst: String!
+//        var streamLast: String!
+//        
+//        switch sender!.tag {
+//        case 1:
+//            streamFirst = operation.processAdCommandFirst(Configuration.settingTypes.diff.value, value: Int(textDiff.text!)!)
+//            streamLast = operation.processAdCommandLast(Int(textDiff.text!)!)
+//        case 2:
+//            streamFirst = operation.processAdCommandFirst(Configuration.settingTypes.minSlope.value, value: Int(textMinSlope.text!)!)
+//            streamLast = operation.processAdCommandLast(Int(textMinSlope.text!)!)
+//        case 3:
+//            streamFirst = operation.processAdCommandFirst(Configuration.settingTypes.maxSlope.value, value: Int(textMaxSlope.text!)!)
+//            streamLast = operation.processAdCommandLast(Int(textMaxSlope.text!)!)
+//        case 4:
+//            streamFirst = operation.processAdCommandFirst(Configuration.settingTypes.keyMod.value, value: Int(textKeyMod.text!)!)
+//            streamLast = operation.processAdCommandLast(Int(textKeyMod.text!)!)
+//        default:
+//            stream = ""
+//            
+//        }
+//        
+//        self.operation.loadingBuffers(node, command: streamFirst)
+//        self.sendingStatus(false)
+//        node.play()
+//        
+//        self.operation.delay(250) {
+//        }
+//        self.operation.loadingBuffers(node, command: streamLast)
+//        node.play()
+//        self.operation.delay(250) {
+//            self.sendingStatus(true)
+//        }
+        
     }
     
     @IBAction func btnSendAllAdSettings(sender: AnyObject) {
         
+        //this part is without delay settings
         var stream = [String]()
         
         stream.append(operation.processAdCommand(Configuration.settingTypes.diff.value, value: Int(textDiff.text!)!))
@@ -162,15 +199,38 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
         stream.append(operation.processAdCommand(Configuration.settingTypes.maxSlope.value, value: Int(textMaxSlope.text!)!))
         stream.append(operation.processAdCommand(Configuration.settingTypes.keyMod.value, value: Int(textKeyMod.text!)!))
         
+        self.sendingStatus(false)
         for i in stream{
             self.operation.loadingBuffers(node, command: i)
-            self.sendingStatus(false)
+            
             node.play()
             self.operation.delay(250, closure: {
-                self.sendingStatus(true)
+                
             })
         }
+        self.sendingStatus(true)
         
+//        //this part is with delay settings
+//        var streamNew = [String]()
+//        
+//        streamNew.append(operation.processAdCommandFirst(Configuration.settingTypes.diff.value, value: Int(textDiff.text!)!))
+//        streamNew.append(operation.processAdCommandLast(Int(textDiff.text!)!))
+//        streamNew.append(operation.processAdCommandFirst(Configuration.settingTypes.minSlope.value, value: Int(textMinSlope.text!)!))
+//        streamNew.append(operation.processAdCommandLast(Int(textMinSlope.text!)!))
+//        streamNew.append(operation.processAdCommandFirst(Configuration.settingTypes.maxSlope.value, value: Int(textMaxSlope.text!)!))
+//        streamNew.append(operation.processAdCommandLast(Int(textMaxSlope.text!)!))
+//        streamNew.append(operation.processAdCommandFirst(Configuration.settingTypes.keyMod.value, value: Int(textKeyMod.text!)!))
+//        streamNew.append(operation.processAdCommandLast(Int(textKeyMod.text!)!))
+//        
+//        for i in streamNew{
+//            self.operation.loadingBuffers(node, command: i)
+//            self.sendingStatus(false)
+//            node.play()
+//            self.operation.delay(250, closure: {
+//            })
+//        }
+//        
+//        self.sendingStatus(true)
     }
     
     

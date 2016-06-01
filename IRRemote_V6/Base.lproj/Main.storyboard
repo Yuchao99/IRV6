@@ -364,6 +364,7 @@
                         <outlet property="btnLabelRampDown" destination="il5-2K-M4w" id="79x-zw-ATo"/>
                         <outlet property="btnLabelRampUp" destination="DuT-sh-3EL" id="Ize-FK-gkz"/>
                         <outlet property="btnLabelSave" destination="0ug-M1-Hbr" id="P09-NY-if0"/>
+                        <outlet property="btnLabelSendAll" destination="Ye4-gd-98Q" id="ECj-6T-XNO"/>
                         <outlet property="btnLabelSensitivity" destination="MmY-rA-GSp" id="Hqg-JZ-MOn"/>
                         <outlet property="labelALS" destination="dVx-cW-nKa" id="P1a-6K-QHy"/>
                         <outlet property="labelDelayToOff" destination="QbA-IS-ds8" id="Sp9-gi-8sx"/>

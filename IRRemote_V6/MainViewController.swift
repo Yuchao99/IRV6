@@ -46,7 +46,8 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
     @IBOutlet weak var btnLabelProfile: UIButton!
     @IBOutlet weak var btnLabelSave: UIButton!
     @IBOutlet weak var btnLabelDelete: UIButton!
-
+    @IBOutlet weak var btnLabelSendAll: UIButton!
+    
     @IBOutlet weak var textProfile: UITextField!
     
     
@@ -169,9 +170,9 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
     
     
     @IBAction func sendBtn(sender: UIButton) {
-        
+        btnLabelSendAll.enabled = false
         self.excuteQueue(node, settings: self.operations.processQueue(self.settings))
-        
+        btnLabelSendAll.enabled = true
     }
     
     @IBAction func btnMenuAction(sender: AnyObject) {
@@ -222,7 +223,7 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
             self.operations.loadingBuffers(node, command: setting)
             node.volume = 1
             node.play()
-            self.operations.delay(400){
+            self.operations.delay(250){
                 
             }
         }
