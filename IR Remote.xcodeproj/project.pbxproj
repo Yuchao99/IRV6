@@ -236,7 +236,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0D9118B41CD3CDA6003D3A77 /* Build configuration list for PBXProject "IRRemote_V6" */;
+			buildConfigurationList = 0D9118B41CD3CDA6003D3A77 /* Build configuration list for PBXProject "IR Remote" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -510,7 +510,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0D9118B41CD3CDA6003D3A77 /* Build configuration list for PBXProject "IRRemote_V6" */ = {
+		0D9118B41CD3CDA6003D3A77 /* Build configuration list for PBXProject "IR Remote" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0D9118DF1CD3CDA6003D3A77 /* Debug */,

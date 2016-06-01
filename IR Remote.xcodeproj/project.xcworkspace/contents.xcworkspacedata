@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:IRRemote_V6.xcodeproj">
+      location = "self:/Users/yuchao/Documents/IRremote/IRRemote_V6/IR Remote.xcodeproj">
    </FileRef>
 </Workspace>

@@ -17,7 +17,7 @@
                BlueprintIdentifier = "0D9118B81CD3CDA6003D3A77"
                BuildableName = "IRRemote_V6.app"
                BlueprintName = "IRRemote_V6"
-               ReferencedContainer = "container:IRRemote_V6.xcodeproj">
+               ReferencedContainer = "container:IR Remote.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "0D9118CC1CD3CDA6003D3A77"
                BuildableName = "IRRemote_V6Tests.xctest"
                BlueprintName = "IRRemote_V6Tests"
-               ReferencedContainer = "container:IRRemote_V6.xcodeproj">
+               ReferencedContainer = "container:IR Remote.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -45,7 +45,7 @@
                BlueprintIdentifier = "0D9118D71CD3CDA6003D3A77"
                BuildableName = "IRRemote_V6UITests.xctest"
                BlueprintName = "IRRemote_V6UITests"
-               ReferencedContainer = "container:IRRemote_V6.xcodeproj">
+               ReferencedContainer = "container:IR Remote.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,7 +55,7 @@
             BlueprintIdentifier = "0D9118B81CD3CDA6003D3A77"
             BuildableName = "IRRemote_V6.app"
             BlueprintName = "IRRemote_V6"
-            ReferencedContainer = "container:IRRemote_V6.xcodeproj">
+            ReferencedContainer = "container:IR Remote.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -78,7 +78,7 @@
             BlueprintIdentifier = "0D9118B81CD3CDA6003D3A77"
             BuildableName = "IRRemote_V6.app"
             BlueprintName = "IRRemote_V6"
-            ReferencedContainer = "container:IRRemote_V6.xcodeproj">
+            ReferencedContainer = "container:IR Remote.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -97,7 +97,7 @@
             BlueprintIdentifier = "0D9118B81CD3CDA6003D3A77"
             BuildableName = "IRRemote_V6.app"
             BlueprintName = "IRRemote_V6"
-            ReferencedContainer = "container:IRRemote_V6.xcodeproj">
+            ReferencedContainer = "container:IR Remote.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
