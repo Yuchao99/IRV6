@@ -81,7 +81,7 @@ class Model {
     }
     
     func processAdCommand(command: Int, value: Int) -> String{
-        let commandStr = decimalToReversedBinary(command) + adBinaryFirstPart(decimalToReversedBinary(value) + decimalToReversedBinary(command) + adBinaryLastPart(decimalToReversedBinary(value)))
+        let commandStr = decimalToReversedBinary(command) + adBinaryFirstPart(decimalToReversedBinary(value) ) 
         
         return commandStr
     }

@@ -147,9 +147,10 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
         self.operation.loadingBuffers(node, command: stream)
         self.sendingStatus(false)
         node.play()
-        self.operation.delay(400) { 
+        self.operation.delay(250) {
             self.sendingStatus(true)
         }
+        
     }
     
     @IBAction func btnSendAllAdSettings(sender: AnyObject) {
@@ -165,7 +166,7 @@ class AdvancedSettingViewController: UIViewController,UINavigationControllerDele
             self.operation.loadingBuffers(node, command: i)
             self.sendingStatus(false)
             node.play()
-            self.operation.delay(400, closure: { 
+            self.operation.delay(250, closure: {
                 self.sendingStatus(true)
             })
         }

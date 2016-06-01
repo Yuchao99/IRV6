@@ -99,6 +99,7 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
         // Dispose of any resources that can be recreated.
     }
     
+    
     func databaseRetrieveProfiles() -> [Configuration]?{
         if let rawData = self.defaults.objectForKey("profiles") as? NSData{
             let processedData = NSKeyedUnarchiver.unarchiveObjectWithData(rawData) as! [Configuration]
