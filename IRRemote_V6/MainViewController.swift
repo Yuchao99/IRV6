@@ -335,6 +335,11 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
         return true
     }
     
+    func textFieldDidBeginEditing(textField: UITextField) {
+        textField.becomeFirstResponder()
+        
+        textField.selectedTextRange = textField.textRangeFromPosition(textField.beginningOfDocument, toPosition: textField.endOfDocument)
+    }
     func textFieldDidEndEditing(textField: UITextField) {
         print("doen with deiting a")
         

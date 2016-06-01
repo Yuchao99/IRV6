@@ -231,6 +231,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         
         case .lightSensor:
             labelMainTitle.text = "Light Sensor Setting"
+            labelSubtitle.text = "Select Light Sensor Value"
             value = settings.maxLuxValue
             btnLabelValue.setTitle(String(value), forState: .Normal)
             maxValue = 100

@@ -22,6 +22,7 @@
 		0D9CA71A1CF4CA45004FEB65 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9CA7191CF4CA45004FEB65 /* ProfileViewController.swift */; };
 		0DD9F93F1CD7E7AB00D33A3A /* configurarion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD9F93E1CD7E7AB00D33A3A /* configurarion.swift */; };
 		0DFADD221CFF2BD600FE2B12 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFADD211CFF2BD600FE2B12 /* RootViewController.swift */; };
+		0DFADD251CFF4E9C00FE2B12 /* MyriadPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0DFADD241CFF4E9C00FE2B12 /* MyriadPro-Light.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		0D9CA7191CF4CA45004FEB65 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0DD9F93E1CD7E7AB00D33A3A /* configurarion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = configurarion.swift; path = IRRemote_V6/configurarion.swift; sourceTree = "<group>"; };
 		0DFADD211CFF2BD600FE2B12 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		0DFADD241CFF4E9C00FE2B12 /* MyriadPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Light.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 		0D9118B01CD3CDA6003D3A77 = {
 			isa = PBXGroup;
 			children = (
+				0DFADD231CFF4E6C00FE2B12 /* src */,
 				0DD9F97E1CD93E7800D33A3A /* Logic */,
 				0D9118BB1CD3CDA6003D3A77 /* IRRemote_V6 */,
 				0D9118D01CD3CDA6003D3A77 /* IRRemote_V6Tests */,
@@ -155,6 +158,14 @@
 				0DD9F93E1CD7E7AB00D33A3A /* configurarion.swift */,
 			);
 			name = Logic;
+			sourceTree = "<group>";
+		};
+		0DFADD231CFF4E6C00FE2B12 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				0DFADD241CFF4E9C00FE2B12 /* MyriadPro-Light.otf */,
+			);
+			name = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +274,7 @@
 			files = (
 				0D9118C71CD3CDA6003D3A77 /* LaunchScreen.storyboard in Resources */,
 				0D9118C41CD3CDA6003D3A77 /* Assets.xcassets in Resources */,
+				0DFADD251CFF4E9C00FE2B12 /* MyriadPro-Light.otf in Resources */,
 				0D9118C21CD3CDA6003D3A77 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
