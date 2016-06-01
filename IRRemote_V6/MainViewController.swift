@@ -273,8 +273,7 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
             
             detailSettingViewController.delegate = self
             detailSettingViewController.settings = self.settings
-            print("this is name in parent view")
-            print(self.settings.name)
+
         }else if segue.identifier == "menuItemsSegue"{
             
             let menuBarViewController = segue.destinationViewController as! MenuBarViewController
@@ -297,12 +296,11 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
             profileSelectViewController.thisNum = self
             
             var profileNameList = [String]()
-            print("this is original list size:")
-            print(profileNameList.count)
+
             for i in self.profiles{
                 profileNameList.append(i.name)
             }
-            print(profileNameList.count)
+
             profileNameList.append("New Profile")
             
             profileSelectViewController.profilesList = profileNameList
@@ -341,16 +339,12 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
         textField.selectedTextRange = textField.textRangeFromPosition(textField.beginningOfDocument, toPosition: textField.endOfDocument)
     }
     func textFieldDidEndEditing(textField: UITextField) {
-        print("doen with deiting a")
         
         self.settings.name = self.textProfile.text!
     }
     
     func updateSettings(setting: Configuration) {
         self.settings = setting
-        print("parent shows up")
-        //dont' need this method to load all the view again
-        //self.viewDidLoad()
         self.loadSetting(self.settings)
     }
     
@@ -363,17 +357,15 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
     
     func updateAdValue(setting: Configuration) {
         self.settings = setting
-        print("parent shows up")
     }
     
     func profileSelected(num: Int) {
-        print(num)
         if num == 0{
             
             self.profileIndex = num
             self.btnLabelSave.enabled = false
             self.loadSetting(self.profiles[self.profileIndex])
-            print("select default file")
+            
             
             self.editProfileMode(false)
         }else{
@@ -389,12 +381,9 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
                 self.settings.name = "New Profile"
                 self.loadSetting(settings)
                 
-                print("open a new file ")
-                
             }else{
                 self.settings = self.profiles[self.profileIndex]
                 self.loadSetting(self.settings)
-                print("select this index file", num)
             }
            
             self.editProfileMode(true)

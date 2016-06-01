@@ -33,6 +33,7 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
     @IBOutlet weak var textValueSub: UITextField!
     @IBOutlet weak var btnLabelEnable: UIButton!
     
+    @IBOutlet weak var lineView: UIView!
     
     
     var settings = Configuration()
@@ -241,9 +242,11 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
             if settings.alsValue == true{
                 btnLabelEnable.setTitle("Light Sensing is Enabled", forState: .Normal)
                 btnLabelSend.enabled = true
+                self.hideComponents(false)
             }else{
                 btnLabelEnable.setTitle("Light Sensing is Disabled", forState: .Normal)
                 btnLabelSend.enabled = false
+                self.hideComponents(true)
             }
         default:
             labelMainTitle.text = "Setting"
@@ -371,9 +374,21 @@ class DetailSettingViewController: UIViewController, UINavigationControllerDeleg
         
         if settings.alsValue == true {
             btnLabelEnable.setTitle("Light Sensing is Enabled", forState: .Normal)
+            hideComponents(false)
         }else{
             btnLabelEnable.setTitle("Light Sensing is Disabled", forState: .Normal)
+            hideComponents(true)
         }
+    }
+    
+    func hideComponents(hide: Bool){
+        sliderMain.hidden = hide
+        labelSubtitle.hidden = hide
+        //textValue.hidden = hide
+        labelUnitMark.hidden = hide
+        btnLabelValue.hidden = hide
+        btnLabelSend.hidden = hide
+        lineView.hidden = hide
     }
     
     
