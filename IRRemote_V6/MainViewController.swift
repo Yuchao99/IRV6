@@ -24,6 +24,11 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
     var node: Protocal!
     
     let alertHeadphone = UIAlertController(title: nil, message: "Please connect RAB fixture to use the app", preferredStyle: .Alert)
+    let alertSending = UIAlertController(title: nil, message: "Sending\n\n\n\n", preferredStyle: UIAlertControllerStyle.Alert)
+    
+    let spinnerIndicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+    
+    
 
     //declare all the UI components
     @IBOutlet weak var labelRampUp: UILabel!
@@ -96,6 +101,12 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
         
         
         alertHeadphone.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+        spinnerIndicator.center = CGPointMake(135.0, 100.5)
+        spinnerIndicator.color = UIColor.blackColor()
+        spinnerIndicator.startAnimating()
+        alertSending.view.addSubview(spinnerIndicator)
+        let aview = alertSending.view
+        aview.alpha = 0.95
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -187,7 +198,9 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
     
     @IBAction func sendBtn(sender: UIButton) {
         btnLabelSendAll.enabled = false
+        //self.presentViewController(alertSending, animated: false, completion: nil)
         self.excuteQueue(node, settings: self.operations.processQueue(self.settings))
+        
         btnLabelSendAll.enabled = true
     }
     
@@ -235,13 +248,21 @@ class MainViewController: UIViewController, UIPopoverPresentationControllerDeleg
     //excute setting queue
     func excuteQueue(node: Protocal, settings: [String]){
         
+        var delaytime = 12000.0
+//        var delaytotal = 250.0 * (Double(settings.count) + 1)
+//        self.operations.delay(delaytotal) { 
+//            self.dismissViewControllerAnimated(true) {
+//            }
+//        }
         for setting: String in settings{
-            self.operations.loadingBuffers(node, command: setting)
-            node.volume = 1
-            node.play()
-            self.operations.delay(250){
-                
+            
+            self.operations.delay(delaytime){
+                print("delay")
+                self.operations.loadingBuffers(node, command: setting)
+                node.volume = 1
+                node.play()
             }
+            delaytime = delaytime + 12000.0
         }
     }
     

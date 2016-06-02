@@ -49,13 +49,13 @@ class Configuration: NSObject, NSCoding{
             case .maxLuxValue:
                 return 8
             case .diff:
-                return 4096
+                return 16
             case .minSlope:
-                return 4352
+                return 17
             case .maxSlope:
-                return 4608
+                return 18
             case .keyMod:
-                return 4864
+                return 19
 //            case .minLuxValue:
 //                return 6
             default:

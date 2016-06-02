@@ -23,12 +23,15 @@ class Model {
     }
     //make it contains 16 digits
     func adDecimalToReversedBinary(x: Int) -> String{
-        var str = String(x, raix: 2)
+        var str = String(x, radix: 2)
         
         while str.characters.count < 16 {
             str = "0" + str
         }
-        
+        print("this is input value")
+        print(x)
+        print("this is binary string")
+        print(str)
         return str
     }
     
@@ -37,7 +40,12 @@ class Model {
     }
     
     func adBinaryLastPart(x: String) -> String{
-        return x[x.startIndex.advancedBy(8)..<x.endIndex]
+        
+        var str = x[x.startIndex.advancedBy(8)..<x.endIndex]
+        while str.characters.count < 16 {
+            str = "0" + str
+        }
+        return str
     }
     
     //process settings queue
